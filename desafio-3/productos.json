@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Vodka",
+    "price": 50,
+    "id": 1
+  },
+  {
+    "title": "Fernet",
+    "price": 200,
+    "id": 2
+  },
+  {
+    "title": "Whisky",
+    "price": 500,
+    "id": 3
+  }
+]
