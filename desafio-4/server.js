@@ -1,66 +1,77 @@
 const express = require('express');
-const { Router } = express;
 const app = express();
-const routerUsuarios = Router();
+const { Router } = express;
+const Container = require('./container');
+const container = new Container();
+const routerProducts = Router();
+const bodyParser = require('body-parser');
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+// parse application/json
+app.use(bodyParser.json());
+
 const port = process.env.PORT || 8080;
+app.use('/api/products', routerProducts);
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-app.use('/public', express.static(__dirname + '/public'));
-
-app.listen(port, () => {
-  console.log(`Example app listening on port http://localhost:${port}`);
-});
-
-app.use('/api/usuarios', routerUsuarios);
-
-let usuarios = [
-  { id: 100, nombre: 'monica', edad: 20 },
-
-  { id: 101, nombre: 'jorge', edad: 21 },
-  { id: 102, nombre: 'raul', edad: 22 },
-  { id: 103, nombre: 'juana', edad: 23 },
-];
+app.listen(port, () => console.log(`The server is running in: http://localhost:${port} `));
 app.get('/', (req, res) => {
-  res.send('<h1>HOLA NOSOTROS la 43495</h1>');
+  res.send("<h1 >CHECK OUR PRODUCTS</h1>");
 });
-routerUsuarios.get('/', (req, res) => {
-  const { query } = req;
+app.get('/form', (req, res) => {
+  res.sendFile(__dirname + '/publics/index.html'); 
+});
 
-  if (query?.nombre) {
-    const usuariosFiltrado = usuarios.filter((usuario) => usuario.nombre == query.nombre);
-    return res.json(usuariosFiltrado);
-  }
-  res.json(usuarios);
-});
-routerUsuarios.post('/', (req, res) => {
+app.post('/form', (req, res) => {
   const { body } = req;
-  usuarios.push(body);
-  res.json('ok');
+  console.log(body);
+  container.save(body);
+  res.send('Product uploaded');
 });
-routerUsuarios.get('/:id', (req, res) => {
+
+routerProducts.get('', async (req, res) => {
+  const products = await container.getAll();
+  res.json(products);
+});
+
+routerProducts.get('/:id', async (req, res) => {
   const { id } = req.params;
-  const usuarioEncontrado = usuarios.find((usuario) => usuario.id == id);
-  if (usuarioEncontrado) {
-    res.json({ success: true, user: usuarioEncontrado });
+  const products = await container.getAll();
+  const product = await container.getById(id);
+  if (id > products.length) {
+    res.json({
+      error: 'This product was not found',
+      productList: products,
+    });
   } else {
-    res.json({ error: true, msg: 'no encontrado' });
+    res.json(product);
   }
 });
-routerUsuarios.put('/:id', (req, res) => {
-  const id = req.params.id;
-  const body = req.body;
-  const indiceEncontrado = usuarios.findIndex((usuario) => usuario.id == id);
-  if (indiceEncontrado >= 0) {
-    usuarios[indiceEncontrado] = body;
-    res.json({ success: true, user: body });
+
+routerProducts.delete('/:id', async (req, res) => {
+  const { id } = req.params;
+  const products = await container.getAll();
+
+  if (id > products.length) {
+    res.json({
+      error: 'This product was not found',
+      productList: products,
+    });
   } else {
-    res.json({ error: true, msg: 'no encontrado' });
+    await container.deleteById(id);
+    res.json({
+      success: true,
+      msg: 'This product was deleted',
+    });
   }
 });
-routerUsuarios.delete('/:id', (req, res) => {
-  const { id } = req.params;
-  usuarios = usuarios.filter((usuario) => usuario.id != id);
-  res.json({ success: true });
+
+routerProducts.put('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { title, price, thumbnail } = req.body;
+    await container.updateById(title, price, thumbnail, id);
+    res.json({ succes: true });
+  } catch (error) {
+    res.json({ error: true, msj: 'error' });
+  }
 });
