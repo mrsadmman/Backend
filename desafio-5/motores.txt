@@ -1,0 +1,3 @@
+Una vez probados los 3 motores de plantilla, me inclino por handlebars. Ya que basicamente es html 
+y no tengo que adquirir conocimientos nuevos. Pug me trajo muchos problemas a la hora de incoporar los elementos
+ya que hay que tener mucho cuidado con los espacios y los tabs
