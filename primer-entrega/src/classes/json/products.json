@@ -1,0 +1,39 @@
+[
+	{
+		"title": "Vodka",
+		"price": 50,
+		"thumbnail": "https://http2.mlstatic.com/D_NQ_NP_659260-MLA31352532052_072019-O.webp",
+		"id": 1
+	},
+	{
+		"title": "Fernet",
+		"price": 200,
+		"thumbnail": "https://almacenfamily.com/productos/fernet-branca-750.png",
+		"id": 2
+	},
+	{
+		"title": "Whisky",
+		"price": 500,
+		"thumbnail": "https://vinotecamasis.com.ar/wp-content/uploads/2021/11/Whisky-Johnnie-Walker-Double-Black-750-ml.png",
+		"id": 3
+	},
+	{
+		"timestampo": "11/23/2022, 6:39:49 PM",
+		"name": "Vodka",
+		"description": "the best liqueur",
+		"thumbnail": "https://http2.mlstatic.com/D_NQ_NP_659260-MLA31352532052_072019-O.webp",
+		"price": 500,
+		"stock": 20,
+		"id": 4
+	},
+	{
+		"timestampo": "11/24/2022, 4:26:08 PM",
+		"name": "Jaggermiester",
+		"description": "Very strong",
+		"code": "A03",
+		"thumbnail": "https://cdn.shopify.com/s/files/1/2383/1159/products/22retoquebotellayphone_640x.jpg?v=1658500103",
+		"price": "10000",
+		"stock": "10",
+		"id": 6
+	}
+]
