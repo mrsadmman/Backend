@@ -1,10 +1,9 @@
 const { option } = require('../db/config/configDB');
 const knex = require('knex')(option);
 
-/* Crear la tabla de productos */
 knex.schema
   .createTable('productos', (table) => {
-    table.increments('id'), table.string('nombre'), table.string('precio'), table.string('thumbnail');
+    table.increments('id'), table.string('name'), table.string('price'), table.string('thumbnail');
   })
   .then(() => {
     console.log('La tabla se creo correctamente');
@@ -17,23 +16,22 @@ knex.schema
     knex.destroy();
   });
 
-/*  Insertar todo el array de productos  */
 knex('productos')
   .insert([
     {
-      nombre: 'Adidas shoes',
-      precio: 1100,
-      thumbnail: '../public/img/adidas-shoes.jpg',
+      name: 'Vodka',
+      price: 50,
+      thumbnail: 'https://http2.mlstatic.com/D_NQ_NP_659260-MLA31352532052_072019-O.webp',
     },
     {
-      nombre: 'Nike ball',
-      precio: 600,
-      thumbnail: '../public/img/nike-ball.jpg',
+      name: 'Fernet',
+      price: 200,
+      thumbnail: 'https://almacenfamily.com/productos/fernet-branca-750.png',
     },
     {
-      nombre: 'Nike shoes',
-      precio: 1200,
-      thumbnail: '../public/img/nike-shoes.jpg',
+      name: 'Whisky',
+      price: 1200,
+      thumbnail: 'https://vinotecamasis.com.ar/wp-content/uploads/2021/11/Whisky-Johnnie-Walker-Double-Black-750-ml.png',
     },
   ])
   .then(() => {

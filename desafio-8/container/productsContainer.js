@@ -22,7 +22,7 @@ class Products {
     async save(obj) {
         try {
             await knex(this.table).insert(obj);
-            console.log('registro creado:', obj);
+            console.log('register created:', obj);
         } catch (error) {
             console.log(error);
         }

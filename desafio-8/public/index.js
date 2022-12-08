@@ -1,15 +1,13 @@
 const socket = io();
 
-// Envia mensajes al backend
 
-function enviarMsg() {
+function sendMsg() {
   const msgParaEnvio = document.getElementById('inputMsg').value;
   const email = document.getElementById('input-email').value;
   socket.emit('msg', { email: email, mensaje: msgParaEnvio });
   return false;
 }
 
-// Recibe mensajes del back y los renderiza en el DOM
 
 socket.on('msg-list', (data) => {
   console.log(`msg-list: ${data}`);
@@ -17,20 +15,19 @@ socket.on('msg-list', (data) => {
   data.forEach((item) => {
     html += `
         <div class="msj-container" >
-        <p class="p-email">${item.timestamp} ${item.email} dice: <br> <span> ${item.mensaje}</span> </p>
+        <p class="p-email">${item.timestamp} ${item.email} says: <br> <span> ${item.mensaje}</span> </p>
         </div> 
         `;
   });
   document.getElementById('mgs-area').innerHTML = html;
 });
 
-// Funcion para enviar productos el backend
 
-function postProducto() {
+function postProduct() {
   const nombreProducto = document.getElementById('nombreProducto').value;
   const precioProducto = document.getElementById('precioProducto').value;
   const urlProducto = document.getElementById('urlProducto').value;
-  socket.emit('product', { nombre: nombreProducto, precio: precioProducto, thumbnail: urlProducto });
+  socket.emit('product', { name: nombreProducto, price: precioProducto, thumbnail: urlProducto });
   return false;
 }
 

@@ -1,7 +1,7 @@
 const option = {
   client: 'sqlite3',
   connection: {
-    filename: '../db/mydb.sqlite',
+    filename: '/home/juan/Backend/desafio-8/db/mydb.sqlite',
   },
   useNullAsDefault: true,
 };
