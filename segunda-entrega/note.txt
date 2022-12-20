@@ -1,0 +1,3 @@
+juantaphanel
+w59YOPy8rzsU65eE
+mongodb+srv://juantaphanel:w59YOPy8rzsU65eE@cluster0.ph6zyjw.mongodb.net/test

@@ -14,7 +14,10 @@ const config = {
       PRODUCTS_FILENAME,
       CARTS_FILENAME,
     },
-    
+    mongo: {
+      url: process.env.MONGO_DB_URL,
+      dbName: process.env.MONGO_DB_NAME,
+    },
     
   },
 };

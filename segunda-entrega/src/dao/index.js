@@ -1,16 +1,16 @@
 import { config } from '../config/index.js';
-//import { MongoDBService } from '../services/index.js';
-import { CartsFilesystem, CartsMemory } from './Carts/index.js';
-import { ProductsFilesystem, ProductsMemory } from './Products/index.js';
+import { MongoDBService } from '../services/index.js';
+import { CartsFilesystem, CartsMemory, CartsMongo } from './Carts/index.js';
+import { ProductsFilesystem, ProductsMemory, ProductsMongo } from './Products/index.js';
 
 const getSelectedDaos = () => {
   switch (config.SERVER.SELECTED_DATABASE) {
     case "mongo": {
-      /* MongoDBService.init();
+      MongoDBService.init();
       return {
         ProductDao: new ProductsMongo(),
         CartDao: new CartsMongo(),
-      }; */
+      };
     }
     case "filesystem": {
       return {
