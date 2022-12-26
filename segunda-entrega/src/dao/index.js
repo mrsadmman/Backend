@@ -1,34 +1,34 @@
 import { config } from '../config/index.js';
 import { MongoDBService } from '../services/index.js';
-import { CartsFilesystem, CartsMemory, CartsMongo } from './Carts/index.js';
-import { ProductsFilesystem, ProductsMemory, ProductsMongo } from './Products/index.js';
+import { CartsFilesystem, CartsMemory, CartsMongo, CartsFirebase } from './Carts/index.js';
+import { ProductsFilesystem, ProductsMemory, ProductsMongo, ProductsFirebase } from './Products/index.js';
 
 const getSelectedDaos = () => {
   switch (config.SERVER.SELECTED_DATABASE) {
-    case "mongo": {
+    case 'mongo': {
       MongoDBService.init();
       return {
         ProductDao: new ProductsMongo(),
         CartDao: new CartsMongo(),
       };
     }
-    case "filesystem": {
+    case 'filesystem': {
       return {
         ProductDao: new ProductsFilesystem(),
         CartDao: new CartsFilesystem(),
       };
     }
-    case "memory": {
+    case 'memory': {
       return {
         ProductDao: new ProductsMemory(),
         CartDao: new CartsMemory(),
       };
     }
-    case "firebase": {
-      /* return {
+    case 'firebase': {
+      return {
         ProductDao: new ProductsFirebase(),
         CartDao: new CartsFirebase(),
-      }; */
+      };
     }
   }
 };
@@ -57,4 +57,4 @@ const resultado = {
   [instancia[1].descripcion]: intancia[1].nombre,
 
 }
-export default resultado; */ 
+export default resultado; */
