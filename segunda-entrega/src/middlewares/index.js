@@ -1,1 +1,1 @@
-export {verifyRole} from "./verifyRole.js"
+export { verifyRole } from './verifyRole.js';

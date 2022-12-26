@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { ProductDao } from '../../dao/index.js';
 import { DATE_UTILS, JOI_VALIDATOR, ERRORS_UTILS } from '../../utils/index.js';
 import { verifyRole } from '../../middlewares/index.js';
+import moment from "moment";
 
 const router = Router();
 
@@ -22,16 +23,19 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', verifyRole, async (req, res) => {
-  try {
-    const { title, description, code, thumbnail, price, stock } = req.body;
-
-    const product = await JOI_VALIDATOR.product.validateAsync({ title, description, code, thumbnail, price, stock, timestamp: DATE_UTILS.getTimestamp() });
-
-    const creatProduct = await ProductDao.save(product);
-    res.send(creatProduct);
-  } catch (error) {
-    res.send(error);
-  }
+  const { body } = req;
+    const timestamp = moment().format("DD / MM / YYYY, h:mm:ss");
+    const id = await ProductDao.save(
+      timestamp,
+      body.title,
+      body.description,
+      body.code,
+      body.thumbnail,
+      body.price,
+      body.stock
+    );
+    res.json('Product added with id: ' + id);
+  
 });
 
 router.delete('/:id', async (req, res) => {
@@ -41,19 +45,28 @@ router.delete('/:id', async (req, res) => {
 
     res.send({ succes: true });
   } catch (error) {
-    res.send({ error: 'ocurrio un error' });
+    res.send({ error: 'error' });
   }
 });
 
 router.put('/:id', async (req, res) => {
   try {
-    const { id } = req.params;
-    const { title, description, code, thumbnail, price, stock } = req.body;
-
-    const updateProduct = await ProductDao.updateById(id, { title, description, code, thumbnail, price, stock });
-    res.send({ sucees: true, data: { update: updateProduct } });
-  } catch (error) {
-    res.send({ error: 'ocurrio un error' });
+    let { id } = req.params;
+    const { body } = req;
+    const timestamp = moment().format("DD / MM / YYYY, h:mm:ss");
+    const resultado = await ProductDao.replace(
+      id,
+      timestamp,
+      body.title,
+      body.description,
+      body.code,
+      body.thumbnail,
+      body.price,
+      body.stock
+    );
+    res.json(resultado);
+  } catch {
+    res.json("error");
   }
 });
 

@@ -7,7 +7,7 @@ const CARTS_FILENAME = 'carts';
 const config = {
   SERVER: {
     PORT: process.env.PORT || 8080,
-    SELECTED_DATABASE: process.env.SELECTED_DB ?? 'memory',
+    SELECTED_DATABASE: process.env.SELECTED_DB,
   },
   DATABASES: {
     filesystem: {

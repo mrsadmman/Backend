@@ -179,7 +179,7 @@ class FirebaseContainer {
     try {
       let res;
 
-      res = await this.coleccion.doc().set({
+      res = await this.coleccion.add({
         timestamp: timestamp,
         title: title,
         description: description,
