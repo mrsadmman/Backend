@@ -2,17 +2,20 @@ const express = require('express');
 const app = express();
 const { engine } = require('express-handlebars');
 const moment = require('moment');
+const { normalize, schema, denormalize } = require('normalizr');
 const timestamp = moment().format('h:mm a');
 
 const Messages = require('./container/messagesContainer');
 const Products = require('./container/productsContainer');
-const msg = new Messages('mensajes');
-const product = new Products('productos');
+const dataMsg = new Messages();
+const datas = new Products();
+
+const generateFakeProducts = require('./utils/fakerProductGenerator');
+const FakeP = generateFakeProducts(5);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-//Server with socket
 const httpServer = require('http').createServer(app);
 const io = require('socket.io')(httpServer);
 
@@ -32,8 +35,38 @@ app.engine(
   })
 );
 app.get('/', (req, res) => {
-  res.render('partials/form', {});
+  res.render('productslist');
 });
+
+app.get('/api/productos-test', async (req, res) => {
+  res.render('productslist');
+});
+
+
+
+const authorSchema = new schema.Entity('authors', {}, { idAttribute: 'email' })
+const messageSchema = new schema.Entity('messages', {
+  author: authorSchema
+})
+
+const chatSchema = new schema.Entity("chats", {
+  messages: [messageSchema]
+})
+
+
+
+const normalizarData = (data) => {
+  const dataNormalizada = normalize({ id: "chatHistory", messages: data }, chatSchema);
+  return dataNormalizada;
+}
+
+
+const normalizarMensajes = async () => {
+  const messages = await dataMsg.getAll();
+  const normalizedMessages = normalizarData(messages);
+  return normalizedMessages;
+
+}
 
 app.get('/products', async (req, res) => {
   const products = await product.getAll();
@@ -48,24 +81,30 @@ app.get('/products', async (req, res) => {
   res.render('/home/juan/Backend/desafio-8/views/productslist.hbs', { products, stock });
 });
 
-io.on('connection', async (socket) => {
-  console.log(`Someone is in your store`);
+io.on("connection", async (socket) => {
+  console.log(`Nuevo cliente conectado ${socket.id}`);
 
-  socket.emit('msg-list', await msg.getAll());
+  socket.emit("product-list", await FakeP);
 
-  socket.on('product', async (data) => {
-    await product.save(data);
+  socket.emit("msg-list", await normalizarMensajes());
 
-    console.log('Se recibió un producto nuevo', 'producto:', data);
+  socket.on("product", async (data) => {
 
-    io.emit('product-list', await product.getAll());
+    await datas.save(data);
+
+    console.log('Se recibio un producto nuevo', "producto:", data);
+
+    io.emit("product-list", await datas.getAll());
+
   });
 
-  socket.on('msg', async (data) => {
-    console.log('Se recibio un msg nuevo', 'msg:', data);
+  socket.on("msg", async (data) => {
 
-    await msg.save({ socketid: socket.id, timestamp: timestamp, ...data });
+    await dataMsg.save({ ...data, timestamp: timestamp });
 
-    io.emit('msg-list', await msg.getAll());
+    console.log('Se recibio un msg nuevo', "msg:", data);
+
+    io.sockets.emit("msg-list", await normalizarMensajes());
+
   });
 });
