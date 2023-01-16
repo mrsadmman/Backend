@@ -70,42 +70,34 @@ function postProducto() {
   return false;
 }
 
-// productos FS
-
-socket.on("products-list", (data) => {
-  console.log("productslist:" + data);
+socket.on('products-lists', (data) => {
+  console.log('products-lists:' + data);
   let html = '';
-  data.forEach(item => {
-      html +=
-          `
+  data.forEach((item) => {
+    html += `
       <div class="products-card">
           <img src="${item.thumbnail}" class="product-img"/>
           <p>Producto: ${item.nombre}</p>
           <p>Precio: $ ${item.precio}</p>
       </div>
-      `
-  })
-  document.getElementById("productslist").innerHTML = html;
-
+      `;
+  });
+  document.getElementById('products-lists').innerHTML = html;
 });
 
-// Faker productos / productos-test
-
-socket.on("productos-test", (data) => {
-  console.log("productos-test:" + data);
+socket.on('productos-test', (data) => {
+  console.log('productos-test:' + data);
   let html = '';
-  data.forEach(item => {
-      html +=
-          `
+  data.forEach((item) => {
+    html += `
       <div class="products-card">
           <img src="${item.thumbnail}" class="product-img"/>
           <p>Producto: ${item.title}</p>
           <p>Precio: $ ${item.price}</p>
       </div>
-      `
-  })
-  document.getElementById("productos-test").innerHTML = html;
-
+      `;
+  });
+  document.getElementById('productos-test').innerHTML = html;
 });
 document.getElementById('myAnchor').addEventListener('click', function (event) {
   event.preventDefault();
