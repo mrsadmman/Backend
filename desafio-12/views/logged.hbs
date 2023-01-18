@@ -1,0 +1,16 @@
+<div class='container d-flex flex-direction-column flex-wrap justify-content-center'>
+
+<p id="username" >Bienvenido!</p>
+<p> <strong class="capitalize">{{username}}</strong> </p>
+<img src="/public/img/success.png" class="arrow" alt="success!">
+<h2>Login success! </h2>
+
+<script>
+    const timer = () => {
+  setTimeout(() => {
+    document.location.href = '/informacionconfidencial'
+  }, 2000);
+    }
+    timer()
+</script>
+</div>

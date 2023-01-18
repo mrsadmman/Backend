@@ -1,0 +1,15 @@
+<div class='container d-flex flex-direction-column flex-wrap justify-content-center'>
+
+<img src="/public/img/denied.png" class="arrow" alt="success!">
+<h2>Login fail!</h2>
+<a href="/login">Try again</a>
+
+<script>
+    const timer = () => {
+  setTimeout(() => {
+    document.location.href = '/login'
+  }, 2000);
+    }
+    timer()
+</script>
+</div>
