@@ -62,6 +62,15 @@ socket.on('msg-list', (data) => {
   document.getElementById('mgs-area').innerHTML = html;
 });
 
+// Funcion para LogIn 
+function enviarLog() {
+  const usuario = document.getElementById("usuario").value;
+  const contraseña = document.getElementById("contraseña").value;
+  console.log('se intento logear');
+  socket.emit("userData", { usuario, contraseña });
+  return false;
+}
+
 function postProducto() {
   const nombreProducto = document.getElementById('nombreProducto').value;
   const precioProducto = document.getElementById('precioProducto').value;
