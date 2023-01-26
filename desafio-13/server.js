@@ -1,5 +1,8 @@
 const express = require('express');
 const session = require('express-session');
+const config = require('./config/config');
+
+console.log(`NODE_ENV=${config.NODE_ENV}`);
 
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
@@ -197,6 +200,10 @@ app.get('/chat', async (req, res) => {
   res.render('chat');
 });
 
+app.get('/info', routes.getinfo);
+
+app.get('/api/random', routes.getApiRandom);
+
 app.get('*', routes.failRoute);
 
 //
@@ -241,7 +248,7 @@ const normalizarMensajes = async () => {
 const httpServer = require('http').createServer(app);
 const io = require('socket.io')(httpServer);
 
-httpServer.listen(process.env.PORT || 8080, () => console.log(`http://localhost:${process.env.PORT || 8080}`));
+httpServer.listen(config.PORT, () => console.log(`Listening on http://${config.HOST}:${config.PORT}`));
 
 io.on('connection', async (socket) => {
   console.log(`Nuevo cliente conectado ${socket.id}`);

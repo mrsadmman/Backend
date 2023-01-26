@@ -111,3 +111,18 @@ socket.on('productos-test', (data) => {
 document.getElementById('myAnchor').addEventListener('click', function (event) {
   event.preventDefault();
 });
+
+socket.on('info', (data) => {
+  const directory = JSON.stringify(process.cwd());
+
+  let html = '';
+  data.forEach((item) => {
+    html += `
+      <div class="products-card">
+          <p>Titulo del proceso: ${item.directory}</p>
+          <p>Sistema Operativo: $ ${item}</p>
+      </div>
+      `;
+  });
+  document.getElementById('info').innerHTML = html;
+});
