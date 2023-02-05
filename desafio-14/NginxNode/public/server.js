@@ -202,6 +202,10 @@ app.get('/chat', async (req, res) => {
 
 app.get('/info', routes.getinfo);
 
+//PROXY
+app.enable("trust proxy");
+//FORK DE CHILD PROCESS
+
 app.get('/api/random', routes.getApiRandom);
 
 app.get('*', routes.failRoute);
