@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { errorLogger } = require('/home/juan/Backend/desafio-15/loggerConfig.js');
 
 class Products {
   constructor(filename) {
@@ -12,8 +13,10 @@ class Products {
       console.log(`Se obtuvo el listado completo de productos`);
 
       return productos;
-    } catch (error) {
-      console.log(`Ocurrio un error: ${error}`);
+    } catch {
+      return errorLogger.log('error', {
+        mensaje: `Error while trying to get all the products`,
+      });
     }
   };
 
@@ -22,8 +25,10 @@ class Products {
       const archivo = fs.readFileSync(this.filePath);
       const productos = JSON.parse(archivo);
       return productos;
-    } catch (error) {
-      console.log(`Ocurrio un error: ${error}`);
+    } catch {
+      return errorLogger.log('error', {
+        mensaje: `Error while trying to get all the products`,
+      });
     }
   };
 
@@ -40,8 +45,10 @@ class Products {
       await fs.promises.writeFile(this.filePath, JSON.stringify(productos, null, 3));
 
       console.log(`Se salvo el objeto con el id ${id}`);
-    } catch (error) {
-      console.log(`Ocurrio un error: ${error}`);
+    } catch {
+      return errorLogger.log('error', {
+        mensaje: `Error while trying to save a product`,
+      });
     }
   };
 
@@ -53,8 +60,10 @@ class Products {
       if (!productoEncontrado) return console.log('El id del pruducto no existe');
       console.log(`Producto encontrado con el id ${id}: ${JSON.stringify(productoEncontrado)}`);
       return productoEncontrado;
-    } catch (error) {
-      console.log(`Ocurrio un error: ${error}`);
+    } catch {
+      return errorLogger.log('error', {
+        mensaje: `Error while trying to get a product by id`,
+      });
     }
   };
 
@@ -69,8 +78,10 @@ class Products {
       await fs.promises.writeFile(this.filePath, JSON.stringify(productosFiltrados, null, 3));
 
       console.log(`Producto con el id ${id}, borrado exitosamente!`);
-    } catch (error) {
-      console.log(`Ocurrio un error: ${error}`);
+    } catch {
+      return errorLogger.log('error', {
+        mensaje: `Error while trying to delete by id`,
+      });
     }
   };
 
@@ -88,8 +99,10 @@ class Products {
       } else {
         return { error: 'Product not found' };
       }
-    } catch (error) {
-      throw new Error(error);
+    } catch {
+      return errorLogger.log('error', {
+        mensaje: `Error while trying to update by id`,
+      });
     }
   };
 
@@ -97,8 +110,10 @@ class Products {
     try {
       await fs.promises.writeFile(this.filePath, JSON.stringify([], null, 3));
       console.log('Se ha borrado todo el array de productos exitosamente!');
-    } catch (error) {
-      console.log(`Ocurrio un error: ${error}`);
+    } catch {
+      return errorLogger.log('error', {
+        mensaje: `Error while trying to delete all the products`,
+      });
     }
   };
 }

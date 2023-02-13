@@ -1,6 +1,8 @@
 const express = require('express');
 const session = require('express-session');
 const config = require('./config/config');
+const { warnLogger } = require("./loggerConfig");
+const compression = require("compression");
 
 console.log(`NODE_ENV=${config.NODE_ENV}`);
 
@@ -148,6 +150,7 @@ app.use(passport.session());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(compression());
 
 app.get('/', routes.getRoot);
 app.get('/login', routes.getLogin);
@@ -204,7 +207,10 @@ app.get('/info', routes.getinfo);
 
 app.get('/api/random', routes.getApiRandom);
 
-app.get('*', routes.failRoute);
+app.get("*", (req, res, next) => {
+  warnLogger.warn({ metodo: req.method, path: req.path });
+  next();
+});
 
 //
 const moment = require('moment');
