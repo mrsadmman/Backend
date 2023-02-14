@@ -1,1 +1,0 @@
-Los informes se puede ver en la carpeta PICS
