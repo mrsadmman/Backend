@@ -1,5 +1,5 @@
 Log Winston
-https://raw.githubusercontent.com/mrsadmman/Backend/blob/main/desafio-15/pics/Screenshot%20from%202023-02-14%2010-04-24.png
+https://github.com/mrsadmman/Backend/blob/main/desafio-15/pics/Screenshot%20from%202023-02-14%2010-04-24.png
 
 Sin GZIP
 /home/juan/Backend/desafio-15/pics/Screenshot from 2023-02-14 09-15-41.png
