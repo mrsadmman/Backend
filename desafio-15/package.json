@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "test": "node autocannon.js",
+    "start": "0x server.js"
   },
+
   "keywords": [],
   "author": "",
   "license": "ISC",

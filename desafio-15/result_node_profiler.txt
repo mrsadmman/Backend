@@ -1,0 +1,1045 @@
+Statistical profiling result from node-profiler.log, (2483 ticks, 0 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+   1821   73.3%          /usr/bin/node
+     87    3.5%          /usr/lib/x86_64-linux-gnu/libc.so.6
+      9    0.4%          /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+      2    0.1%          [vdso]
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+     13    0.5%    2.3%  JS: *resolve node:path:1095:10
+      8    0.3%    1.4%  JS: *readPackage node:internal/modules/cjs/loader:335:21
+      4    0.2%    0.7%  JS: *realpathSync node:fs:2470:22
+      3    0.1%    0.5%  JS: *normalizeString node:path:66:25
+      2    0.1%    0.4%  JS: ^makeRequireFunction node:internal/modules/cjs/helpers:59:29
+      2    0.1%    0.4%  JS: ^Module._load node:internal/modules/cjs/loader:851:24
+      2    0.1%    0.4%  JS: ^Module._findPath node:internal/modules/cjs/loader:555:28
+      2    0.1%    0.4%  JS: *readPackageScope node:internal/modules/cjs/loader:377:26
+      2    0.1%    0.4%  JS: *dirname node:path:1279:10
+      1    0.0%    0.2%  JS: ^wrapSafe node:internal/modules/cjs/loader:1117:18
+      1    0.0%    0.2%  JS: ^readFileSync node:fs:456:22
+      1    0.0%    0.2%  JS: ^isRegExp /home/juan/Backend/desafio-15/node_modules/bson/lib/parser/utils.js:72:18
+      1    0.0%    0.2%  JS: ^internalCompileFunction node:internal/vm:30:33
+      1    0.0%    0.2%  JS: ^insert node:internal/timers:355:16
+      1    0.0%    0.2%  JS: ^getEncodingOps node:buffer:688:24
+      1    0.0%    0.2%  JS: ^findLongestRegisteredExtension node:internal/modules/cjs/loader:469:40
+      1    0.0%    0.2%  JS: ^deserializeObject /home/juan/Backend/desafio-15/node_modules/bson/lib/parser/deserializer.js:65:27
+      1    0.0%    0.2%  JS: ^closeSync /home/juan/Backend/desafio-15/node_modules/graceful-fs/graceful-fs.js:72:24
+      1    0.0%    0.2%  JS: ^allocate node:buffer:407:18
+      1    0.0%    0.2%  JS: ^Module._resolveFilename node:internal/modules/cjs/loader:948:35
+      1    0.0%    0.2%  JS: ^Module._nodeModulePaths node:internal/modules/cjs/loader:715:37
+      1    0.0%    0.2%  JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1    0.0%    0.2%  JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      1    0.0%    0.2%  JS: ^Module node:internal/modules/cjs/loader:206:16
+      1    0.0%    0.2%  JS: *validateString node:internal/validators:161:24
+      1    0.0%    0.2%  JS: *unsigned32 /home/juan/Backend/desafio-15/node_modules/faker/vendor/mersenne.js:73:23
+      1    0.0%    0.2%  JS: *syncExports node:internal/bootstrap/loaders:307:14
+      1    0.0%    0.2%  JS: *readFileSync node:fs:456:22
+      1    0.0%    0.2%  JS: *loadBuiltinModule node:internal/modules/cjs/helpers:45:27
+      1    0.0%    0.2%  JS: *getValidatedString /home/juan/Backend/desafio-15/node_modules/bson/lib/parser/deserializer.js:650:28
+      1    0.0%    0.2%  JS: *basename node:path:1310:11
+      1    0.0%    0.2%  JS: *Module.load node:internal/modules/cjs/loader:1069:33
+      1    0.0%    0.2%  JS: *Module._resolveLookupPaths node:internal/modules/cjs/loader:753:38
+      1    0.0%    0.2%  JS: *Module._nodeModulePaths node:internal/modules/cjs/loader:715:37
+      1    0.0%    0.2%  JS: *Module._compile node:internal/modules/cjs/loader:1173:37
+
+ [C++]:
+   ticks  total  nonlib   name
+    117    4.7%   20.7%  __write@@GLIBC_2.2.5
+     86    3.5%   15.2%  fwrite@@GLIBC_2.2.5
+     69    2.8%   12.2%  epoll_pwait@@GLIBC_2.6
+     44    1.8%    7.8%  std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@@GLIBCXX_3.4.9
+     38    1.5%    6.7%  syscall@@GLIBC_2.2.5
+     29    1.2%    5.1%  _IO_file_xsputn@@GLIBC_2.2.5
+     13    0.5%    2.3%  std::ostream::sentry::sentry(std::ostream&)@@GLIBCXX_3.4
+     12    0.5%    2.1%  __libc_malloc@@GLIBC_2.2.5
+     11    0.4%    2.0%  isprint@@GLIBC_2.2.5
+     10    0.4%    1.8%  __open@@GLIBC_2.2.5
+      8    0.3%    1.4%  __pthread_mutex_lock@GLIBC_2.2.5
+      7    0.3%    1.2%  __pthread_mutex_unlock@GLIBC_2.2.5
+      6    0.2%    1.1%  std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const@@GLIBCXX_3.4
+      5    0.2%    0.9%  __mprotect@@GLIBC_PRIVATE
+      4    0.2%    0.7%  operator new[](unsigned long)@@GLIBCXX_3.4
+      4    0.2%    0.7%  cfree@GLIBC_2.2.5
+      3    0.1%    0.5%  operator delete(void*)@@GLIBCXX_3.4
+      3    0.1%    0.5%  __pthread_rwlock_unlock@GLIBC_2.2.5
+      3    0.1%    0.5%  __mmap@@GLIBC_PRIVATE
+      3    0.1%    0.5%  _IO_default_xsputn@@GLIBC_2.2.5
+      2    0.1%    0.4%  std::ostream& std::ostream::_M_insert<long>(long)@@GLIBCXX_3.4.9
+      2    0.1%    0.4%  operator new(unsigned long)@@GLIBCXX_3.4
+      2    0.1%    0.4%  __read@@GLIBC_2.2.5
+      2    0.1%    0.4%  __pthread_rwlock_rdlock@GLIBC_2.2.5
+      2    0.1%    0.4%  __popcountdi2@@GCC_3.4
+      2    0.1%    0.4%  __munmap@@GLIBC_PRIVATE
+      1    0.0%    0.2%  std::ostream::flush()@@GLIBCXX_3.4
+      1    0.0%    0.2%  std::ostream& std::ostream::_M_insert<unsigned long>(unsigned long)@@GLIBCXX_3.4.9
+      1    0.0%    0.2%  std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::do_put(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, unsigned long) const@@GLIBCXX_3.4
+      1    0.0%    0.2%  std::locale::id::_M_id() const@@GLIBCXX_3.4
+      1    0.0%    0.2%  std::__detail::_Prime_rehash_policy::_M_need_rehash(unsigned long, unsigned long, unsigned long) const@@GLIBCXX_3.4.18
+      1    0.0%    0.2%  std::_Rb_tree_insert_and_rebalance(bool, std::_Rb_tree_node_base*, std::_Rb_tree_node_base*, std::_Rb_tree_node_base&)@@GLIBCXX_3.4
+      1    0.0%    0.2%  std::_Rb_tree_decrement(std::_Rb_tree_node_base*)@@GLIBCXX_3.4
+      1    0.0%    0.2%  pthread_cond_signal@@GLIBC_2.3.2
+      1    0.0%    0.2%  fputc@@GLIBC_2.2.5
+      1    0.0%    0.2%  fflush@@GLIBC_2.2.5
+      1    0.0%    0.2%  epoll_ctl@@GLIBC_2.3.2
+      1    0.0%    0.2%  __lll_lock_wait_private@@GLIBC_PRIVATE
+      1    0.0%    0.2%  __clock_gettime@@GLIBC_PRIVATE
+
+ [Summary]:
+   ticks  total  nonlib   name
+     64    2.6%   11.3%  JavaScript
+    500   20.1%   88.7%  C++
+    163    6.6%   28.9%  GC
+   1919   77.3%          Shared libraries
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+     95   25.2%    3.8%  __write@@GLIBC_2.2.5
+     82   21.8%    3.3%  fwrite@@GLIBC_2.2.5
+     43   11.4%    1.7%  std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@@GLIBCXX_3.4.9
+     38   10.1%    1.5%  syscall@@GLIBC_2.2.5
+     28    7.4%    1.1%  _IO_file_xsputn@@GLIBC_2.2.5
+     13    3.4%    0.5%  std::ostream::sentry::sentry(std::ostream&)@@GLIBCXX_3.4
+     11    2.9%    0.4%  isprint@@GLIBC_2.2.5
+     11    2.9%    0.4%  __libc_malloc@@GLIBC_2.2.5
+     10    2.7%    0.4%  __open@@GLIBC_2.2.5
+      6    1.6%    0.2%  std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const@@GLIBCXX_3.4
+      6    1.6%    0.2%  __pthread_mutex_unlock@GLIBC_2.2.5
+      5    1.3%    0.2%  __pthread_mutex_lock@GLIBC_2.2.5
+      4    1.1%    0.2%  operator new[](unsigned long)@@GLIBCXX_3.4
+      3    0.8%    0.1%  cfree@GLIBC_2.2.5
+      3    0.8%    0.1%  __mprotect@@GLIBC_PRIVATE
+      3    0.8%    0.1%  _IO_default_xsputn@@GLIBC_2.2.5
+      2    0.5%    0.1%  std::ostream& std::ostream::_M_insert<long>(long)@@GLIBCXX_3.4.9
+      2    0.5%    0.1%  operator new(unsigned long)@@GLIBCXX_3.4
+      2    0.5%    0.1%  operator delete(void*)@@GLIBCXX_3.4
+      2    0.5%    0.1%  __read@@GLIBC_2.2.5
+      1    0.3%    0.0%  std::ostream::flush()@@GLIBCXX_3.4
+      1    0.3%    0.0%  std::ostream& std::ostream::_M_insert<unsigned long>(unsigned long)@@GLIBCXX_3.4.9
+      1    0.3%    0.0%  std::__detail::_Prime_rehash_policy::_M_need_rehash(unsigned long, unsigned long, unsigned long) const@@GLIBCXX_3.4.18
+      1    0.3%    0.0%  std::_Rb_tree_insert_and_rebalance(bool, std::_Rb_tree_node_base*, std::_Rb_tree_node_base*, std::_Rb_tree_node_base&)@@GLIBCXX_3.4
+      1    0.3%    0.0%  std::_Rb_tree_decrement(std::_Rb_tree_node_base*)@@GLIBCXX_3.4
+      1    0.3%    0.0%  fputc@@GLIBC_2.2.5
+      1    0.3%    0.0%  fflush@@GLIBC_2.2.5
+      1    0.3%    0.0%  __munmap@@GLIBC_PRIVATE
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+   1821   73.3%  /usr/bin/node
+   1348   74.0%    /usr/bin/node
+    633   47.0%      JS: ^internalCompileFunction node:internal/vm:30:33
+    627   99.1%        JS: ^wrapSafe node:internal/modules/cjs/loader:1117:18
+    623   99.4%          JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+    611   98.1%            JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+     12    1.9%            JS: ~Module._extensions..js node:internal/modules/cjs/loader:1227:37
+     55    4.1%      JS: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+     39   70.9%        JS: ^nativeModuleRequire node:internal/bootstrap/loaders:356:29
+      5   12.8%          JS: ~<anonymous> node:http:1:1
+      5  100.0%            JS: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+      4   10.3%          JS: ~<anonymous> node:_http_client:1:1
+      4  100.0%            JS: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+      3    7.7%          JS: ~<anonymous> node:tls:1:1
+      3  100.0%            JS: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+      3    7.7%          JS: ~<anonymous> node:internal/modules/esm/load:1:1
+      3  100.0%            JS: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+      3    7.7%          JS: ~<anonymous> node:internal/fs/promises:1:1
+      3  100.0%            JS: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+      3    7.7%          JS: ~<anonymous> node:internal/child_process:1:1
+      3  100.0%            JS: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+      3    7.7%          JS: ~<anonymous> node:child_process:1:1
+      3  100.0%            JS: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+      2    5.1%          JS: ~<anonymous> node:internal/modules/esm/loader:1:1
+      2  100.0%            JS: ~<anonymous> node:internal/process/esm_loader:1:1
+      2    5.1%          JS: ~<anonymous> node:assert:1:1
+      2  100.0%            JS: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+      1    2.6%          JS: ~lazyLoadStreams node:fs:2903:25
+      1  100.0%            JS: ~get ReadStream node:fs:3046:17
+      1    2.6%          JS: ~initializeCJSLoader node:internal/process/pre_execution:563:29
+      1  100.0%            JS: ~setupUserModules node:internal/process/pre_execution:121:26
+      1    2.6%          JS: ~get node:dns:350:8
+      1  100.0%            /usr/bin/node
+      1    2.6%          JS: ~get BlockList node:net:1960:16
+      1  100.0%            JS: ~<anonymous> node:internal/modules/esm/fetch_module:1:1
+      1    2.6%          JS: ~<anonymous> node:internal/readline/interface:1:1
+      1  100.0%            JS: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+      1    2.6%          JS: ~<anonymous> node:internal/process/esm_loader:1:1
+      1  100.0%            JS: ~<anonymous> node:internal/modules/cjs/loader:1:1
+      1    2.6%          JS: ~<anonymous> node:internal/cluster/primary:1:1
+      1  100.0%            JS: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+      1    2.6%          JS: ~<anonymous> node:cluster:1:1
+      1  100.0%            JS: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+      1    2.6%          JS: ~<anonymous> node:_tls_wrap:1:1
+      1  100.0%            JS: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+      1    2.6%          JS: ~<anonymous> node:_tls_common:1:1
+      1  100.0%            JS: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+      1    2.6%          JS: ~<anonymous> node:_http_common:1:1
+      1  100.0%            JS: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+     14   25.5%        JS: ^compileForPublicLoader node:internal/bootstrap/loaders:264:25
+     12   85.7%          JS: ^loadBuiltinModule node:internal/modules/cjs/helpers:45:27
+     12  100.0%            JS: ^Module._load node:internal/modules/cjs/loader:851:24
+      2   14.3%          JS: *loadBuiltinModule node:internal/modules/cjs/helpers:45:27
+      2  100.0%            JS: ^Module._load node:internal/modules/cjs/loader:851:24
+      1    1.8%        JS: ~compileForPublicLoader node:internal/bootstrap/loaders:264:25
+      1  100.0%          JS: ~loadBuiltinModule node:internal/modules/cjs/helpers:45:27
+      1  100.0%            JS: ~Module._load node:internal/modules/cjs/loader:851:24
+      1    1.8%        JS: *internalCompileFunction node:internal/vm:30:33
+      1  100.0%          JS: ^wrapSafe node:internal/modules/cjs/loader:1117:18
+      1  100.0%            JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+     48    3.6%      /usr/bin/node
+      3    6.3%        JS: ~resolvePackageTargetString node:internal/modules/esm/resolve:346:36
+      3  100.0%          JS: ~resolvePackageTarget node:internal/modules/esm/resolve:453:30
+      3  100.0%            JS: ~resolvePackageTarget node:internal/modules/esm/resolve:453:30
+      3    6.3%        JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connect.js:78:43
+      3  100.0%          JS: ~prepareHandshakeDocument /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connect.js:151:34
+      3  100.0%            JS: ~performInitialHandshake /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connect.js:62:33
+      3    6.3%        JS: ^realpathSync node:fs:2470:22
+      3  100.0%          JS: ^toRealPath node:internal/modules/cjs/loader:449:20
+      3  100.0%            JS: ^tryFile node:internal/modules/cjs/loader:440:17
+      3    6.3%        JS: ^readPackage node:internal/modules/cjs/loader:335:21
+      3  100.0%          JS: ^readPackageScope node:internal/modules/cjs/loader:377:26
+      2   66.7%            JS: ^trySelf node:internal/modules/cjs/loader:497:17
+      1   33.3%            JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      2    4.2%        JS: ~isIPv6 node:internal/net:38:16
+      2  100.0%          JS: ~isIP node:internal/net:45:14
+      1   50.0%            JS: ~lookupAndConnect node:net:1112:26
+      1   50.0%            JS: ~lookup node:dns:140:16
+      2    4.2%        JS: ^Module._findPath node:internal/modules/cjs/loader:555:28
+      2  100.0%          JS: ^Module._resolveFilename node:internal/modules/cjs/loader:948:35
+      2  100.0%            JS: ^Module._load node:internal/modules/cjs/loader:851:24
+      2    4.2%        JS: ^Module node:internal/modules/cjs/loader:206:16
+      2  100.0%          JS: ^Module._load node:internal/modules/cjs/loader:851:24
+      2  100.0%            JS: *Module.require node:internal/modules/cjs/loader:1097:36
+      1    2.1%        JS: ~shouldUseNative /home/juan/Backend/desafio-15/node_modules/object-assign/index.js:21:25
+      1  100.0%          JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/object-assign/index.js:1:1
+      1  100.0%            JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      1    2.1%        JS: ~parse /home/juan/Backend/desafio-15/node_modules/dotenv/lib/main.js:11:16
+      1  100.0%          JS: ~config /home/juan/Backend/desafio-15/node_modules/dotenv/lib/main.js:58:17
+      1  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/config/config.js:1:1
+      1    2.1%        JS: ~parse /home/juan/Backend/desafio-15/node_modules/@mapbox/node-pre-gyp/node_modules/semver/functions/parse.js:6:15
+      1  100.0%          JS: ~module.exports.evaluate /home/juan/Backend/desafio-15/node_modules/@mapbox/node-pre-gyp/lib/util/versioning.js:277:35
+      1  100.0%            JS: ~exports.find /home/juan/Backend/desafio-15/node_modules/@mapbox/node-pre-gyp/lib/pre-binding.js:17:24
+      1    2.1%        JS: ~makeFormatFunction /home/juan/Backend/desafio-15/node_modules/moment/moment.js:496:32
+      1  100.0%          JS: ~formatMoment /home/juan/Backend/desafio-15/node_modules/moment/moment.js:522:26
+      1  100.0%            JS: ~format /home/juan/Backend/desafio-15/node_modules/moment/moment.js:3988:20
+      1    2.1%        JS: ~makeConnection /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connect.js:256:24
+      1  100.0%          JS: ~connect /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connect.js:30:17
+      1  100.0%            JS: ~checkServer /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/sdam/monitor.js:143:21
+      1    2.1%        JS: ~getset /home/juan/Backend/desafio-15/node_modules/color/index.js:431:16
+      1  100.0%          JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/color/index.js:1:1
+      1  100.0%            JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      1    2.1%        JS: ~getStack /home/juan/Backend/desafio-15/node_modules/depd/index.js:381:19
+      1  100.0%          JS: ~depd /home/juan/Backend/desafio-15/node_modules/depd/index.js:103:15
+      1  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/body-parser/index.js:1:1
+      1    2.1%        JS: ~eval_template /home/juan/Backend/desafio-15/node_modules/@mapbox/node-pre-gyp/lib/util/versioning.js:234:23
+      1  100.0%          JS: ~module.exports.evaluate /home/juan/Backend/desafio-15/node_modules/@mapbox/node-pre-gyp/lib/util/versioning.js:277:35
+      1  100.0%            JS: ~exports.find /home/juan/Backend/desafio-15/node_modules/@mapbox/node-pre-gyp/lib/pre-binding.js:17:24
+      1    2.1%        JS: ~checkServer /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/sdam/monitor.js:143:21
+      1  100.0%          JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/sdam/monitor.js:226:12
+      1  100.0%            JS: ~MonitorInterval._executeAndReschedule /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/sdam/monitor.js:337:38
+      1    2.1%        JS: ~abbrev /home/juan/Backend/desafio-15/node_modules/abbrev/abbrev.js:17:17
+      1  100.0%          JS: ~parse /home/juan/Backend/desafio-15/node_modules/@mapbox/node-pre-gyp/node_modules/nopt/lib/nopt.js:242:16
+      1  100.0%            JS: ~nopt /home/juan/Backend/desafio-15/node_modules/@mapbox/node-pre-gyp/node_modules/nopt/lib/nopt.js:26:15
+      1    2.1%        JS: ~SchemaTypeOptions /home/juan/Backend/desafio-15/node_modules/mongoose/lib/options/SchemaTypeOptions.js:18:14
+      1  100.0%          JS: ~SchemaStringOptions /home/juan/Backend/desafio-15/node_modules/mongoose/lib/options/SchemaStringOptions.js:18:1
+      1  100.0%            JS: ~SchemaType /home/juan/Backend/desafio-15/node_modules/mongoose/lib/schematype.js:42:20
+      1    2.1%        JS: ~Kareem.filter /home/juan/Backend/desafio-15/node_modules/kareem/index.js:438:35
+      1  100.0%          JS: ~applyHooks /home/juan/Backend/desafio-15/node_modules/mongoose/lib/helpers/model/applyHooks.js:40:20
+      1  100.0%            JS: ~compile /home/juan/Backend/desafio-15/node_modules/mongoose/lib/model.js:5067:33
+      1    2.1%        JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/socket.io/dist/index.js:290:27
+      1  100.0%          JS: ^emit node:events:460:44
+      1  100.0%            JS: ~parserOnIncoming node:_http_server:961:26
+      1    2.1%        JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/socket.io-parser/node_modules/debug/src/node.js:1:1
+      1  100.0%          JS: *Module._compile node:internal/modules/cjs/loader:1173:37
+      1  100.0%            JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1    2.1%        JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/lib/helpers/pluralize.js:86:34
+      1  100.0%          /usr/bin/node
+      1  100.0%            JS: ~pluralize /home/juan/Backend/desafio-15/node_modules/mongoose/lib/helpers/pluralize.js:82:19
+      1    2.1%        JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/faker/lib/locales/he/name/first_name.js:1:1
+      1  100.0%          JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      1  100.0%            JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1    2.1%        JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/@mapbox/node-pre-gyp/lib/util/napi.js:1:1
+      1  100.0%          JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      1  100.0%            JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1    2.1%        JS: ^splitRoot node:fs:2426:33
+      1  100.0%          JS: ^realpathSync node:fs:2470:22
+      1  100.0%            JS: ^toRealPath node:internal/modules/cjs/loader:449:20
+      1    2.1%        JS: ^readPackageScope node:internal/modules/cjs/loader:377:26
+      1  100.0%          JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1  100.0%            JS: ^Module.load node:internal/modules/cjs/loader:1069:33
+      1    2.1%        JS: ^processTicksAndRejections node:internal/process/task_queues:67:35
+      1    2.1%        JS: ^internalCompileFunction node:internal/vm:30:33
+      1  100.0%          JS: ^wrapSafe node:internal/modules/cjs/loader:1117:18
+      1  100.0%            JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      1    2.1%        JS: ^deprecate node:internal/util:99:19
+      1  100.0%          JS: ~<anonymous> node:_http_outgoing:1:1
+      1  100.0%            JS: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+      1    2.1%        JS: ^attachCommands /home/juan/Backend/desafio-15/node_modules/@redis/client/dist/lib/commander.js:5:24
+      1  100.0%          JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/@redis/client/dist/lib/cluster/index.js:1:1
+      1  100.0%            JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      1    2.1%        JS: ^Module.load node:internal/modules/cjs/loader:1069:33
+      1  100.0%          JS: ^Module._load node:internal/modules/cjs/loader:851:24
+      1  100.0%            JS: ^Module.require node:internal/modules/cjs/loader:1097:36
+      1    2.1%        JS: ^Module._nodeModulePaths node:internal/modules/cjs/loader:715:37
+      1  100.0%          JS: ^Module.load node:internal/modules/cjs/loader:1069:33
+      1  100.0%            JS: ^Module._load node:internal/modules/cjs/loader:851:24
+      1    2.1%        JS: ^Module._load node:internal/modules/cjs/loader:851:24
+      1  100.0%          JS: ^Module.require node:internal/modules/cjs/loader:1097:36
+      1  100.0%            JS: ^require node:internal/modules/cjs/helpers:102:31
+      1    2.1%        JS: ^HostAddress /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/utils.js:871:16
+      1  100.0%          JS: ^fromString /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/utils.js:929:22
+      1  100.0%            JS: ^get hostAddress /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/sdam/server_description.js:65:20
+      1    2.1%        JS: ^FastBuffer node:internal/buffer:958:14
+      1  100.0%          JS: ^createUnsafeBuffer node:internal/buffer:1059:28
+      1  100.0%            JS: ^allocate node:buffer:407:18
+      1    2.1%        JS: *realpathSync node:fs:2470:22
+      1  100.0%          JS: *tryExtensions node:internal/modules/cjs/loader:456:23
+      1  100.0%            JS: ^tryPackage node:internal/modules/cjs/loader:394:20
+      1    2.1%        JS: *internalCompileFunction node:internal/vm:30:33
+      1  100.0%          JS: *Module._compile node:internal/modules/cjs/loader:1173:37
+      1  100.0%            JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+     40    3.0%      JS: ~configSecureContext node:internal/tls/secure-context:124:29
+     40  100.0%        JS: ~createSecureContext node:_tls_common:99:29
+     40  100.0%          JS: ~connect node:_tls_wrap:1602:35
+     40  100.0%            JS: ~makeConnection /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connect.js:256:24
+     22    1.6%      JS: *readPackage node:internal/modules/cjs/loader:335:21
+     20   90.9%        JS: *readPackageScope node:internal/modules/cjs/loader:377:26
+     11   55.0%          JS: ^trySelf node:internal/modules/cjs/loader:497:17
+     11  100.0%            JS: ^Module._resolveFilename node:internal/modules/cjs/loader:948:35
+      9   45.0%          JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      9  100.0%            JS: *Module.load node:internal/modules/cjs/loader:1069:33
+      1    4.5%        JS: ^tryPackage node:internal/modules/cjs/loader:394:20
+      1  100.0%          JS: *Module._findPath node:internal/modules/cjs/loader:555:28
+      1  100.0%            JS: ^Module._resolveFilename node:internal/modules/cjs/loader:948:35
+      1    4.5%        JS: *Module._findPath node:internal/modules/cjs/loader:555:28
+      1  100.0%          JS: ^Module._resolveFilename node:internal/modules/cjs/loader:948:35
+      1  100.0%            JS: ^Module._load node:internal/modules/cjs/loader:851:24
+     21    1.6%      JS: ^attachCommands /home/juan/Backend/desafio-15/node_modules/@redis/client/dist/lib/commander.js:5:24
+      9   42.9%        JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/@redis/client/dist/lib/client/index.js:1:1
+      9  100.0%          JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      9  100.0%            JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      6   28.6%        JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/@redis/client/dist/lib/client/multi-command.js:1:1
+      6  100.0%          JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      6  100.0%            JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      3   14.3%        JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/@redis/client/dist/lib/cluster/multi-command.js:1:1
+      3  100.0%          JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      3  100.0%            JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      3   14.3%        JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/@redis/client/dist/lib/cluster/index.js:1:1
+      3  100.0%          JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      3  100.0%            JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+     16    1.2%      JS: ~getReport node:internal/process/report:32:12
+     16  100.0%        JS: ~getReport /home/juan/Backend/desafio-15/node_modules/detect-libc/lib/process.js:6:19
+     16  100.0%          JS: ~familyFromReport /home/juan/Backend/desafio-15/node_modules/detect-libc/lib/detect-libc.js:48:26
+     16  100.0%            JS: ~familySync /home/juan/Backend/desafio-15/node_modules/detect-libc/lib/detect-libc.js:92:20
+     15    1.1%      JS: ~pbkdf2Sync node:internal/crypto/pbkdf2:68:20
+     15  100.0%        JS: ~HI /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/auth/scram.js:238:12
+     15  100.0%          JS: ~continueScramConversation /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/auth/scram.js:93:35
+     15  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/auth/scram.js:85:80
+     15    1.1%      JS: ~TLSSocket.getPeerCertificate node:_tls_wrap:989:50
+     15  100.0%        JS: ~onConnectSecure node:_tls_wrap:1521:25
+     15  100.0%          JS: ^emit node:events:460:44
+     15  100.0%            JS: ~TLSSocket._finishInit node:_tls_wrap:923:43
+     89    4.9%    JS: *internalCompileFunction node:internal/vm:30:33
+     65   73.0%      JS: *Module._compile node:internal/modules/cjs/loader:1173:37
+     65  100.0%        JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+     65  100.0%          JS: *Module.load node:internal/modules/cjs/loader:1069:33
+     65  100.0%            JS: ^Module._load node:internal/modules/cjs/loader:851:24
+     24   27.0%      JS: ^wrapSafe node:internal/modules/cjs/loader:1117:18
+     24  100.0%        JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+     24  100.0%          JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+     15   62.5%            JS: *Module.load node:internal/modules/cjs/loader:1069:33
+      9   37.5%            JS: ^Module.load node:internal/modules/cjs/loader:1069:33
+
+    117    4.7%  __write@@GLIBC_2.2.5
+     67   57.3%    /usr/bin/node
+      3    4.5%      JS: ^emit node:events:460:44
+      1   33.3%        JS: ~resume_ node:internal/streams/readable:996:17
+      1  100.0%          JS: ^processTicksAndRejections node:internal/process/task_queues:67:35
+      1   33.3%        JS: ~onParserExecuteCommon node:_http_server:840:31
+      1  100.0%          JS: ~onParserExecute node:_http_server:779:25
+      1   33.3%        JS: ~onFinish node:internal/streams/writable:671:20
+      1  100.0%          JS: ~ZlibBase._final node:zlib:350:37
+      1  100.0%            JS: ~callFinal node:internal/streams/writable:668:19
+      3    4.5%      /usr/bin/node
+      1   33.3%        JS: ~define /home/juan/Backend/desafio-15/node_modules/normalizr/dist/normalizr.js:131:34
+      1  100.0%          JS: ~EntitySchema /home/juan/Backend/desafio-15/node_modules/normalizr/dist/normalizr.js:92:24
+      1  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/server.js:1:1
+      1   33.3%        JS: ~color /home/juan/Backend/desafio-15/node_modules/console-control-strings/index.js:115:32
+      1  100.0%          JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/gauge/themes.js:1:1
+      1  100.0%            JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      1   33.3%        JS: *realpathSync node:fs:2470:22
+      1  100.0%          JS: *tryExtensions node:internal/modules/cjs/loader:456:23
+      1  100.0%            JS: ^tryPackage node:internal/modules/cjs/loader:394:20
+      2    3.0%      JS: ~executeOperationAsync /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/operations/execute_operation.js:15:37
+      2  100.0%        JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/operations/execute_operation.js:12:39
+      2  100.0%          JS: ~maybeCallback /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/utils.js:336:23
+      2  100.0%            JS: ~executeOperation /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/operations/execute_operation.js:11:26
+      1    1.5%      JS: ~write node:buffer:1061:40
+      1  100.0%        JS: ~serializeString /home/juan/Backend/desafio-15/node_modules/bson/lib/parser/serializer.js:19:25
+      1  100.0%          JS: ~serializeInto /home/juan/Backend/desafio-15/node_modules/bson/lib/parser/serializer.js:553:23
+      1  100.0%            JS: ~serializeObject /home/juan/Backend/desafio-15/node_modules/bson/lib/parser/serializer.js:260:25
+      1    1.5%      JS: ~write /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:427:15
+      1  100.0%        JS: ~command /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:274:12
+      1  100.0%          JS: ~measureRoundTripTime /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/sdam/monitor.js:288:30
+      1  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/sdam/monitor.js:304:58
+      1    1.5%      JS: ~update /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/sdam/topology_description.js:131:11
+      1  100.0%        JS: ~serverUpdateHandler /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/sdam/topology.js:320:24
+      1  100.0%          JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/sdam/topology.js:480:53
+      1  100.0%            JS: ^emit node:events:460:44
+      1    1.5%      JS: ~set readyState /home/juan/Backend/desafio-15/node_modules/engine.io/build/transport.js:32:19
+      1  100.0%        /usr/bin/node
+      1  100.0%          JS: ~Transport /home/juan/Backend/desafio-15/node_modules/engine.io/build/transport.js:22:16
+      1  100.0%            JS: ~Polling /home/juan/Backend/desafio-15/node_modules/engine.io/build/transports/polling.js:19:16
+      1    1.5%      JS: ~serializePath /home/juan/Backend/desafio-15/node_modules/mongodb-connection-string-url/node_modules/whatwg-url/lib/url-state-machine.js:1155:23
+      1  100.0%        JS: ~get pathname /home/juan/Backend/desafio-15/node_modules/mongodb-connection-string-url/node_modules/whatwg-url/lib/URL-impl.js:147:15
+      1  100.0%          JS: ~get pathname /home/juan/Backend/desafio-15/node_modules/mongodb-connection-string-url/node_modules/whatwg-url/lib/URL.js:321:17
+      1  100.0%            JS: ~ConnectionString /home/juan/Backend/desafio-15/node_modules/mongodb-connection-string-url/lib/index.js:82:16
+      1    1.5%      JS: ~serializeInto /home/juan/Backend/desafio-15/node_modules/bson/lib/parser/serializer.js:553:23
+      1  100.0%        JS: ~serialize /home/juan/Backend/desafio-15/node_modules/bson/lib/bson.js:110:19
+      1  100.0%          JS: ~toBin /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/commands.js:82:10
+      1  100.0%            JS: ~writeCommand /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/message_stream.js:40:17
+      1    1.5%      JS: ~send /home/juan/Backend/desafio-15/node_modules/engine.io/build/transports/polling.js:191:9
+      1  100.0%        JS: ~flush /home/juan/Backend/desafio-15/node_modules/engine.io/build/socket.js:394:10
+      1  100.0%          JS: ^emit node:events:460:44
+      1  100.0%            JS: ~onPollRequest /home/juan/Backend/desafio-15/node_modules/engine.io/build/transports/polling.js:58:18
+      1    1.5%      JS: ~realpathSync node:fs:2470:22
+      1  100.0%        JS: ~toRealPath node:internal/modules/cjs/loader:449:20
+      1  100.0%          JS: ~Module._findPath node:internal/modules/cjs/loader:555:28
+      1  100.0%            JS: ~resolveMainPath node:internal/modules/run_main:15:25
+      1    1.5%      JS: ~readableAddChunk node:internal/streams/readable:242:26
+      1  100.0%        JS: ~Readable.push node:internal/streams/readable:233:35
+      1  100.0%          JS: ~writeCommand /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/message_stream.js:40:17
+      1  100.0%            JS: ~write /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:427:15
+      1    1.5%      JS: ~readFile node:internal/fs/promises:909:24
+      1  100.0%        JS: ~getAll /home/juan/Backend/desafio-15/container/productsContainer.js:9:12
+      1  100.0%          JS: ~<anonymous> /home/juan/Backend/desafio-15/server.js:1:1
+      1  100.0%            JS: ~Module._compile node:internal/modules/cjs/loader:1173:37
+      1    1.5%      JS: ~pushAsyncContext node:internal/async_hooks:541:26
+      1  100.0%        JS: ~emitBeforeScript node:internal/async_hooks:511:26
+      1  100.0%          JS: ~processTicksAndRejections node:internal/process/task_queues:67:35
+      1    1.5%      JS: ~processWaitQueue /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/sdam/topology.js:547:26
+      1  100.0%        JS: ~serverUpdateHandler /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/sdam/topology.js:320:24
+      1  100.0%          JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/sdam/topology.js:480:53
+      1  100.0%            JS: ^emit node:events:460:44
+      1    1.5%      JS: ~processIncomingData /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/message_stream.js:84:29
+      1  100.0%        JS: ~_write /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/message_stream.js:31:11
+      1  100.0%          JS: ~writeOrBuffer node:internal/streams/writable:368:23
+      1  100.0%            JS: ~_write node:internal/streams/writable:286:16
+      1    1.5%      JS: ~peek node:internal/linkedlist:10:14
+      1  100.0%        JS: ~listOnTimeout node:internal/timers:512:25
+      1  100.0%          JS: ~processTimers node:internal/timers:492:25
+      1    1.5%      JS: ~patchProcessObject node:internal/process/pre_execution:135:28
+      1  100.0%        JS: ~prepareExecution node:internal/process/pre_execution:52:26
+      1  100.0%          JS: ~prepareMainThreadExecution node:internal/process/pre_execution:36:36
+      1  100.0%            JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    1.5%      JS: ~parserOnHeadersComplete node:_http_common:72:33
+      1    1.5%      JS: ~parse /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/commands.js:426:10
+      1  100.0%        JS: ~onMessage /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:157:14
+      1  100.0%          JS: ^<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:61:44
+      1  100.0%            JS: ^emit node:events:460:44
+      1    1.5%      JS: ~onMessage /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:157:14
+      1  100.0%        JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:61:44
+      1  100.0%          JS: ^emit node:events:460:44
+      1  100.0%            JS: ~processIncomingData /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/message_stream.js:84:29
+      1    1.5%      JS: ~module.exports.evaluate /home/juan/Backend/desafio-15/node_modules/@mapbox/node-pre-gyp/lib/util/versioning.js:277:35
+      1  100.0%        JS: ~exports.find /home/juan/Backend/desafio-15/node_modules/@mapbox/node-pre-gyp/lib/pre-binding.js:17:24
+      1  100.0%          JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/bcrypt/bcrypt.js:1:1
+      1  100.0%            JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      1    1.5%      JS: ~maxWireVersion /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/utils.js:373:24
+      1  100.0%        JS: ^supportsOpMsg /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:408:23
+      1  100.0%          JS: ^command /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:274:12
+      1  100.0%            JS: ~measureRoundTripTime /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/sdam/monitor.js:288:30
+      1    1.5%      JS: ~makeConnection /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connect.js:256:24
+      1  100.0%        JS: ~connect /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connect.js:30:17
+      1  100.0%          JS: ~checkServer /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/sdam/monitor.js:143:21
+      1  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/sdam/monitor.js:226:12
+      1    1.5%      JS: ~log node:internal/console/constructor:376:6
+      1  100.0%        /usr/bin/node
+      1  100.0%          JS: ~<anonymous> /home/juan/Backend/desafio-15/server.js:1:1
+      1  100.0%            JS: ~Module._compile node:internal/modules/cjs/loader:1173:37
+      1    1.5%      JS: ~listOnTimeout node:internal/timers:512:25
+      1  100.0%        JS: ^processTimers node:internal/timers:492:25
+      1    1.5%      JS: ~isQueryPercentEncode /home/juan/Backend/desafio-15/node_modules/mongodb-connection-string-url/node_modules/whatwg-url/lib/percent-encoding.js:58:30
+      1  100.0%        JS: ~isPathPercentEncode /home/juan/Backend/desafio-15/node_modules/mongodb-connection-string-url/node_modules/whatwg-url/lib/percent-encoding.js:69:29
+      1  100.0%          JS: ~isUserinfoPercentEncode /home/juan/Backend/desafio-15/node_modules/mongodb-connection-string-url/node_modules/whatwg-url/lib/percent-encoding.js:76:33
+      1  100.0%            JS: ~utf8PercentEncodeCodePointInternal /home/juan/Backend/desafio-15/node_modules/mongodb-connection-string-url/node_modules/whatwg-url/lib/percent-encoding.js:97:44
+      1    1.5%      JS: ~handleUpgrade /home/juan/Backend/desafio-15/node_modules/ws/lib/websocket-server.js:227:16
+      1  100.0%        JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/engine.io/build/server.js:383:32
+      1  100.0%          JS: ~verify /home/juan/Backend/desafio-15/node_modules/engine.io/build/server.js:76:11
+      1  100.0%            JS: ~handleUpgrade /home/juan/Backend/desafio-15/node_modules/engine.io/build/server.js:381:18
+      1    1.5%      JS: ~handleError /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/sdam/server.js:221:16
+      1  100.0%        JS: ~handleOperationResult /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/sdam/server.js:327:42
+      1  100.0%          JS: ~onMessage /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:157:14
+      1  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:61:44
+      1    1.5%      JS: ~get node:crypto:379:8
+      1  100.0%        /usr/bin/node
+      1  100.0%          JS: ^getOwn node:internal/bootstrap/loaders:188:16
+      1  100.0%            JS: ^syncExports node:internal/bootstrap/loaders:307:14
+      1    1.5%      JS: ~formatWithOptions node:internal/util/inspect:2152:27
+      1  100.0%        JS: ~value node:internal/console/constructor:337:20
+      1  100.0%          JS: ~log node:internal/console/constructor:376:6
+      1  100.0%            /usr/bin/node
+      1    1.5%      JS: ~doWrite /home/juan/Backend/desafio-15/node_modules/engine.io/build/transports/polling.js:230:12
+      1  100.0%        JS: ~write /home/juan/Backend/desafio-15/node_modules/engine.io/build/transports/polling.js:219:10
+      1  100.0%          JS: ~doWrite /home/juan/Backend/desafio-15/node_modules/engine.io/build/transports/polling.js:199:25
+      1  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/engine.io-parser/build/cjs/index.js:16:55
+      1    1.5%      JS: ~defaultTriggerAsyncIdScope node:internal/async_hooks:457:36
+      1  100.0%        JS: ~connectionListener node:_http_server:594:28
+      1  100.0%          JS: ^emit node:events:460:44
+      1  100.0%            JS: ~onconnection node:net:1694:22
+      1    1.5%      JS: ~createWritableStdioStream node:internal/bootstrap/switches/is_main_thread:45:35
+      1  100.0%        JS: ~getStderr node:internal/bootstrap/switches/is_main_thread:168:19
+      1  100.0%          JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/debug/src/node.js:1:1
+      1  100.0%            JS: ~Module._compile node:internal/modules/cjs/loader:1173:37
+      1    1.5%      JS: ~copy node:buffer:785:16
+      1  100.0%        JS: ~serialize /home/juan/Backend/desafio-15/node_modules/bson/lib/bson.js:110:19
+      1  100.0%          JS: ~toBin /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/commands.js:82:10
+      1  100.0%            JS: ~writeCommand /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/message_stream.js:40:17
+      1    1.5%      JS: ~continueScramConversation /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/auth/scram.js:93:35
+      1  100.0%        JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/auth/scram.js:85:80
+      1  100.0%          JS: ~onMessage /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:157:14
+      1  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:61:44
+      1    1.5%      JS: ~command /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:274:12
+      1  100.0%        JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connect.js:78:43
+      1  100.0%          JS: ~prepareHandshakeDocument /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connect.js:151:34
+      1  100.0%            JS: ~performInitialHandshake /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connect.js:62:33
+      1    1.5%      JS: ~assignSocket node:_http_server:275:62
+      1  100.0%        JS: ~parserOnIncoming node:_http_server:961:26
+      1  100.0%          JS: ~parserOnHeadersComplete node:_http_common:72:33
+      1    1.5%      JS: ~addAddress node:internal/blocklist:60:13
+      1  100.0%        JS: ~<anonymous> node:internal/modules/esm/fetch_module:1:1
+      1  100.0%          JS: ~<anonymous> node:internal/modules/esm/get_format:1:1
+      1  100.0%            JS: ~<anonymous> node:internal/modules/esm/resolve:1:1
+      1    1.5%      JS: ~_destroy node:internal/streams/destroy:77:18
+      1  100.0%        JS: ~destroy node:internal/streams/destroy:39:17
+      1  100.0%          JS: ~endReadableNT node:internal/streams/readable:1352:23
+      1  100.0%            JS: ^processTicksAndRejections node:internal/process/task_queues:67:35
+      1    1.5%      JS: ~TopologyDescription /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/sdam/topology_description.js:29:16
+      1  100.0%        JS: ~Topology /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/sdam/topology.js:40:16
+      1  100.0%          JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/mongo_client.js:114:43
+      1  100.0%            /usr/bin/node
+      1    1.5%      JS: ~Socket._getpeername node:net:807:41
+      1  100.0%        JS: ~remoteAddress node:net:832:52
+      1  100.0%          JS: ~streamIdentifier /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:415:26
+      1  100.0%            JS: ~Connection /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:38:16
+      1    1.5%      JS: ~SchemaType /home/juan/Backend/desafio-15/node_modules/mongoose/lib/schematype.js:42:20
+      1  100.0%        JS: ~SchemaNumber /home/juan/Backend/desafio-15/node_modules/mongoose/lib/schema/number.js:25:22
+      1  100.0%          JS: ~Schema.interpretAsType /home/juan/Backend/desafio-15/node_modules/mongoose/lib/schema.js:1162:44
+      1  100.0%            JS: ~Schema.path /home/juan/Backend/desafio-15/node_modules/mongoose/lib/schema.js:894:33
+      1    1.5%      JS: ~Readable.read /home/juan/Backend/desafio-15/node_modules/winston/node_modules/readable-stream/lib/_stream_readable.js:392:36
+      1  100.0%        JS: ~resume_ /home/juan/Backend/desafio-15/node_modules/winston/node_modules/readable-stream/lib/_stream_readable.js:909:17
+      1  100.0%          JS: ~processTicksAndRejections node:internal/process/task_queues:67:35
+      1    1.5%      JS: ~ObjectId /home/juan/Backend/desafio-15/node_modules/bson/lib/objectid.js:24:22
+      1  100.0%        JS: ^deserializeObject /home/juan/Backend/desafio-15/node_modules/bson/lib/parser/deserializer.js:65:27
+      1  100.0%          JS: ^deserialize /home/juan/Backend/desafio-15/node_modules/bson/lib/parser/deserializer.js:36:21
+      1  100.0%            JS: ^deserialize /home/juan/Backend/desafio-15/node_modules/bson/lib/bson.js:161:21
+      1    1.5%      JS: ~Module._findPath node:internal/modules/cjs/loader:555:28
+      1  100.0%        JS: ~Module._resolveFilename node:internal/modules/cjs/loader:948:35
+      1  100.0%          JS: ~Module._load node:internal/modules/cjs/loader:851:24
+      1  100.0%            JS: ~Module.require node:internal/modules/cjs/loader:1097:36
+      1    1.5%      JS: ~Long /home/juan/Backend/desafio-15/node_modules/bson/lib/long.js:59:18
+      1  100.0%        JS: ~Timestamp /home/juan/Backend/desafio-15/node_modules/bson/lib/timestamp.js:29:23
+      1  100.0%          JS: ~deserializeObject /home/juan/Backend/desafio-15/node_modules/bson/lib/parser/deserializer.js:65:27
+      1  100.0%            JS: ~deserializeObject /home/juan/Backend/desafio-15/node_modules/bson/lib/parser/deserializer.js:65:27
+      1    1.5%      JS: ~Image /home/juan/Backend/desafio-15/node_modules/faker/lib/image.js:9:22
+      1  100.0%        JS: ~Faker /home/juan/Backend/desafio-15/node_modules/faker/lib/index.js:24:16
+      1  100.0%          JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/faker/index.js:1:1
+      1  100.0%            JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      1    1.5%      JS: ~Faker /home/juan/Backend/desafio-15/node_modules/faker/lib/index.js:24:16
+      1  100.0%        JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/faker/index.js:1:1
+      1  100.0%          JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      1  100.0%            JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1    1.5%      JS: ~Duplex node:internal/streams/duplex:54:16
+      1  100.0%        JS: ~Socket node:net:314:16
+      1  100.0%          JS: ~WriteStream node:tty:84:21
+      1  100.0%            JS: ~createWritableStdioStream node:internal/bootstrap/switches/is_main_thread:45:35
+      1    1.5%      JS: ~Connection /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:38:16
+      1  100.0%        JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connect.js:31:63
+      1  100.0%          JS: ~callback /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connect.js:269:31
+      1  100.0%            JS: ~connectHandler /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connect.js:313:28
+      1    1.5%      JS: ~<anonymous> node:internal/util/colors:1:1
+      1  100.0%        JS: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+      1  100.0%          JS: ^nativeModuleRequire node:internal/bootstrap/loaders:356:29
+      1  100.0%            JS: ~<anonymous> node:internal/assert/assertion_error:1:1
+      1    1.5%      JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection_pool.js:486:35
+      1  100.0%        JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection_pool.js:360:48
+      1  100.0%          JS: ~callback /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connect.js:63:31
+      1  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connect.js:128:44
+      1    1.5%      JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection_pool.js:301:27
+      1  100.0%        JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/sdam/server.js:211:101
+      1  100.0%          JS: ~handleOperationResult /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/sdam/server.js:327:42
+      1  100.0%            JS: ~onMessage /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:157:14
+      1    1.5%      JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/lib/model.js:1359:5
+      1  100.0%        JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/lib/model.js:1366:23
+      1  100.0%          JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/lib/model.js:5265:15
+      1  100.0%            JS: ^processTicksAndRejections node:internal/process/task_queues:67:35
+      1    1.5%      JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/moment/moment.js:11:19
+      1  100.0%        JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/moment/moment.js:7:12
+      1  100.0%          JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/moment/moment.js:1:1
+      1  100.0%            JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      1    1.5%      JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/http-errors/index.js:1:1
+      1  100.0%        JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      1  100.0%          JS: ~Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1  100.0%            JS: ^Module.load node:internal/modules/cjs/loader:1069:33
+      1    1.5%      JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/faker/lib/index.js:62:45
+      1  100.0%        /usr/bin/node
+      1  100.0%          JS: ~Faker /home/juan/Backend/desafio-15/node_modules/faker/lib/index.js:24:16
+      1  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/faker/index.js:1:1
+      1    1.5%      JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/color/node_modules/color-convert/index.js:70:31
+      1  100.0%        /usr/bin/node
+      1  100.0%          JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/color/node_modules/color-convert/index.js:61:25
+      1  100.0%            /usr/bin/node
+      1    1.5%      JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/aproba/index.js:52:39
+      1  100.0%        /usr/bin/node
+      1  100.0%          JS: ~validate /home/juan/Backend/desafio-15/node_modules/aproba/index.js:25:19
+      1  100.0%            JS: ~module.exports /home/juan/Backend/desafio-15/node_modules/gauge/plumbing.js:6:42
+      1    1.5%      JS: ^onceWrapper node:events:622:21
+      1  100.0%        JS: ^emit node:events:460:44
+      1  100.0%          JS: ~onConnectSecure node:_tls_wrap:1521:25
+      1  100.0%            JS: ^emit node:events:460:44
+      1    1.5%      JS: *realpathSync node:fs:2470:22
+      1  100.0%        JS: *tryExtensions node:internal/modules/cjs/loader:456:23
+      1  100.0%          JS: ^Module._findPath node:internal/modules/cjs/loader:555:28
+      1  100.0%            JS: ^Module._resolveFilename node:internal/modules/cjs/loader:948:35
+     28   23.9%    JS: *internalCompileFunction node:internal/vm:30:33
+     18   64.3%      JS: *Module._compile node:internal/modules/cjs/loader:1173:37
+     18  100.0%        JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+     18  100.0%          JS: *Module.load node:internal/modules/cjs/loader:1069:33
+     18  100.0%            JS: ^Module._load node:internal/modules/cjs/loader:851:24
+     10   35.7%      JS: ^wrapSafe node:internal/modules/cjs/loader:1117:18
+     10  100.0%        JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+     10  100.0%          JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      8   80.0%            JS: ^Module.load node:internal/modules/cjs/loader:1069:33
+      2   20.0%            JS: *Module.load node:internal/modules/cjs/loader:1069:33
+
+     87    3.5%  /usr/lib/x86_64-linux-gnu/libc.so.6
+     29   33.3%    /usr/bin/node
+      4   13.8%      JS: *readPackage node:internal/modules/cjs/loader:335:21
+      4  100.0%        JS: *readPackageScope node:internal/modules/cjs/loader:377:26
+      3   75.0%          JS: ^trySelf node:internal/modules/cjs/loader:497:17
+      3  100.0%            JS: ^Module._resolveFilename node:internal/modules/cjs/loader:948:35
+      1   25.0%          JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1  100.0%            JS: *Module.load node:internal/modules/cjs/loader:1069:33
+      3   10.3%      JS: *realpathSync node:fs:2470:22
+      2   66.7%        JS: *tryExtensions node:internal/modules/cjs/loader:456:23
+      2  100.0%          JS: ^Module._findPath node:internal/modules/cjs/loader:555:28
+      2  100.0%            JS: ^Module._resolveFilename node:internal/modules/cjs/loader:948:35
+      1   33.3%        JS: ^toRealPath node:internal/modules/cjs/loader:449:20
+      1  100.0%          JS: ^tryFile node:internal/modules/cjs/loader:440:17
+      1  100.0%            JS: ^tryExtensions node:internal/modules/cjs/loader:456:23
+      2    6.9%      JS: ~patchProcessObject node:internal/process/pre_execution:135:28
+      2  100.0%        JS: ~prepareExecution node:internal/process/pre_execution:52:26
+      2  100.0%          JS: ~prepareMainThreadExecution node:internal/process/pre_execution:36:36
+      2  100.0%            JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      2    6.9%      /usr/bin/node
+      1   50.0%        JS: ^Module node:internal/modules/cjs/loader:206:16
+      1  100.0%          JS: ^Module._load node:internal/modules/cjs/loader:851:24
+      1  100.0%            JS: ^Module.require node:internal/modules/cjs/loader:1097:36
+      1   50.0%        JS: *Module node:internal/modules/cjs/loader:206:16
+      1  100.0%          JS: ^Module._load node:internal/modules/cjs/loader:851:24
+      1  100.0%            JS: *Module.require node:internal/modules/cjs/loader:1097:36
+      1    3.4%      JS: ~set node:internal/bootstrap/node:119:8
+      1  100.0%        JS: ~patchProcessObject node:internal/process/pre_execution:135:28
+      1  100.0%          JS: ~prepareExecution node:internal/process/pre_execution:52:26
+      1  100.0%            JS: ~prepareMainThreadExecution node:internal/process/pre_execution:36:36
+      1    3.4%      JS: ~serializeInto /home/juan/Backend/desafio-15/node_modules/bson/lib/parser/serializer.js:553:23
+      1  100.0%        JS: ~serialize /home/juan/Backend/desafio-15/node_modules/bson/lib/bson.js:110:19
+      1  100.0%          JS: ~toBin /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/commands.js:82:10
+      1  100.0%            JS: ~writeCommand /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/message_stream.js:40:17
+      1    3.4%      JS: ~remoteAddress node:net:832:52
+      1  100.0%        JS: ~streamIdentifier /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:415:26
+      1  100.0%          JS: ~Connection /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:38:16
+      1  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connect.js:31:63
+      1    3.4%      JS: ~processTicksAndRejections node:internal/process/task_queues:67:35
+      1    3.4%      JS: ~parsePath /home/juan/Backend/desafio-15/node_modules/mongodb-connection-string-url/node_modules/whatwg-url/lib/url-state-machine.js:991:61
+      1  100.0%        JS: ^URLStateMachine /home/juan/Backend/desafio-15/node_modules/mongodb-connection-string-url/node_modules/whatwg-url/lib/url-state-machine.js:481:25
+      1  100.0%          JS: ~module.exports.basicURLParse /home/juan/Backend/desafio-15/node_modules/mongodb-connection-string-url/node_modules/whatwg-url/lib/url-state-machine.js:1206:41
+      1  100.0%            JS: ~URLImpl /home/juan/Backend/desafio-15/node_modules/mongodb-connection-string-url/node_modules/whatwg-url/lib/URL-impl.js:7:14
+      1    3.4%      JS: ~handleOperationResult /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/sdam/server.js:327:42
+      1  100.0%        JS: ~onMessage /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:157:14
+      1  100.0%          JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:61:44
+      1  100.0%            JS: ^emit node:events:460:44
+      1    3.4%      JS: ~forEachCode /home/juan/Backend/desafio-15/node_modules/http-errors/index.js:259:38
+      1  100.0%        /usr/bin/node
+      1  100.0%          JS: ~populateConstructorExports /home/juan/Backend/desafio-15/node_modules/http-errors/index.js:258:37
+      1  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/http-errors/index.js:1:1
+      1    3.4%      JS: ~deserialize /home/juan/Backend/desafio-15/node_modules/bson/lib/parser/deserializer.js:36:21
+      1  100.0%        JS: ~deserialize /home/juan/Backend/desafio-15/node_modules/bson/lib/bson.js:161:21
+      1  100.0%          JS: ~parse /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/commands.js:222:10
+      1  100.0%            JS: ~onMessage /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:157:14
+      1    3.4%      JS: ~defaultTriggerAsyncIdScope node:internal/async_hooks:457:36
+      1  100.0%        JS: ~connectionListener node:_http_server:594:28
+      1  100.0%          JS: ^emit node:events:460:44
+      1  100.0%            JS: ~onconnection node:net:1694:22
+      1    3.4%      JS: ~createCollection /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/db.js:156:21
+      1  100.0%        JS: ~createCollection /home/juan/Backend/desafio-15/node_modules/mongoose/lib/connection.js:401:82
+      1  100.0%          JS: ~Connection.onOpen /home/juan/Backend/desafio-15/node_modules/mongoose/lib/connection.js:637:39
+      1  100.0%            JS: ~_setClient /home/juan/Backend/desafio-15/node_modules/mongoose/lib/connection.js:859:20
+      1    3.4%      JS: ~MongoClient /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/mongo_client.js:43:16
+      1  100.0%        JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/lib/connection.js:799:31
+      1  100.0%          /usr/bin/node
+      1  100.0%            JS: ~Connection.openUri /home/juan/Backend/desafio-15/node_modules/mongoose/lib/connection.js:681:40
+      1    3.4%      JS: ~Long.fromNumber /home/juan/Backend/desafio-15/node_modules/bson/lib/long.js:131:32
+      1  100.0%        JS: ~compareTopologyVersion /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/sdam/server_description.js:175:32
+      1  100.0%          JS: ~equals /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/sdam/server_description.js:95:11
+      1  100.0%            JS: ~serverUpdateHandler /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/sdam/topology.js:320:24
+      1    3.4%      JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/winston/lib/winston.js:1:1
+      1  100.0%        JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      1  100.0%          JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1  100.0%            JS: ^Module.load node:internal/modules/cjs/loader:1069:33
+      1    3.4%      JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/lib/schema.js:2164:41
+      1  100.0%        /usr/bin/node
+      1  100.0%          JS: ~Schema.virtual /home/juan/Backend/desafio-15/node_modules/mongoose/lib/schema.js:2071:36
+      1  100.0%            JS: ~addIdGetter /home/juan/Backend/desafio-15/node_modules/mongoose/lib/helpers/schema/idGetter.js:7:38
+      1    3.4%      JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/logform/index.js:1:1
+      1  100.0%        JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      1  100.0%          JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1  100.0%            JS: ^Module.load node:internal/modules/cjs/loader:1069:33
+      1    3.4%      JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/debug/src/node.js:1:1
+      1  100.0%        JS: ~Module._compile node:internal/modules/cjs/loader:1173:37
+      1  100.0%          JS: ~Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1  100.0%            JS: ~Module.load node:internal/modules/cjs/loader:1069:33
+      1    3.4%      JS: ^emit node:events:460:44
+      1  100.0%        JS: ~TLSSocket._finishInit node:_tls_wrap:923:43
+      1  100.0%          JS: ~ssl.onhandshakedone node:_tls_wrap:731:27
+      1    3.4%      JS: ^Module._load node:internal/modules/cjs/loader:851:24
+      1  100.0%        JS: *Module.require node:internal/modules/cjs/loader:1097:36
+      1  100.0%          JS: ^require node:internal/modules/cjs/helpers:102:31
+      1  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/@redis/client/dist/lib/cluster/commands.js:1:1
+     15   17.2%    JS: *internalCompileFunction node:internal/vm:30:33
+     11   73.3%      JS: *Module._compile node:internal/modules/cjs/loader:1173:37
+     11  100.0%        JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+     11  100.0%          JS: *Module.load node:internal/modules/cjs/loader:1069:33
+     11  100.0%            JS: ^Module._load node:internal/modules/cjs/loader:851:24
+      4   26.7%      JS: ^wrapSafe node:internal/modules/cjs/loader:1117:18
+      4  100.0%        JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      4  100.0%          JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      3   75.0%            JS: *Module.load node:internal/modules/cjs/loader:1069:33
+      1   25.0%            JS: ^Module.load node:internal/modules/cjs/loader:1069:33
+
+     86    3.5%  fwrite@@GLIBC_2.2.5
+     49   57.0%    JS: *internalCompileFunction node:internal/vm:30:33
+     35   71.4%      JS: *Module._compile node:internal/modules/cjs/loader:1173:37
+     35  100.0%        JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+     35  100.0%          JS: *Module.load node:internal/modules/cjs/loader:1069:33
+     35  100.0%            JS: ^Module._load node:internal/modules/cjs/loader:851:24
+     14   28.6%      JS: ^wrapSafe node:internal/modules/cjs/loader:1117:18
+     14  100.0%        JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+     14  100.0%          JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+     10   71.4%            JS: *Module.load node:internal/modules/cjs/loader:1069:33
+      4   28.6%            JS: ^Module.load node:internal/modules/cjs/loader:1069:33
+     33   38.4%    /usr/bin/node
+      4   12.1%      JS: ~value node:internal/console/constructor:337:20
+      4  100.0%        JS: ~log node:internal/console/constructor:376:6
+      4  100.0%          /usr/bin/node
+      4  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/server.js:1:1
+      3    9.1%      /usr/bin/node
+      2   66.7%        JS: ~getStack /home/juan/Backend/desafio-15/node_modules/depd/index.js:381:19
+      2  100.0%          JS: ~depd /home/juan/Backend/desafio-15/node_modules/depd/index.js:103:15
+      2  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/body-parser/index.js:1:1
+      1   33.3%        JS: ~getOwn node:internal/bootstrap/loaders:188:16
+      1  100.0%          JS: ~syncExports node:internal/bootstrap/loaders:307:14
+      1  100.0%            JS: ~<anonymous> node:internal/bootstrap/loaders:293:15
+      2    6.1%      JS: ~toRealPath node:internal/modules/cjs/loader:449:20
+      2  100.0%        JS: ~Module._findPath node:internal/modules/cjs/loader:555:28
+      2  100.0%          JS: ~resolveMainPath node:internal/modules/run_main:15:25
+      2  100.0%            JS: ~executeUserEntryPoint node:internal/modules/run_main:75:31
+      2    6.1%      JS: ~protoGetter node:net:819:21
+      2  100.0%        JS: ~<anonymous> node:net:1:1
+      2  100.0%          JS: ~<anonymous> node:internal/modules/esm/fetch_module:1:1
+      2  100.0%            JS: ~<anonymous> node:internal/modules/esm/get_format:1:1
+      2    6.1%      JS: ~prepare /home/juan/Backend/desafio-15/node_modules/engine.io/build/server.js:327:12
+      2  100.0%        JS: ~handleRequest /home/juan/Backend/desafio-15/node_modules/engine.io/build/server.js:343:18
+      2  100.0%          JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/engine.io/build/server.js:479:30
+      2  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/socket.io/dist/index.js:290:27
+      1    3.0%      JS: ~value node:internal/console/constructor:315:20
+      1  100.0%        JS: ~value node:internal/console/constructor:337:20
+      1  100.0%          JS: ~log node:internal/console/constructor:376:6
+      1  100.0%            /usr/bin/node
+      1    3.0%      JS: ~transform /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/connection_string.js:809:18
+      1  100.0%        JS: ~setOption /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/connection_string.js:407:19
+      1  100.0%          JS: ~parseOptions /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/connection_string.js:195:22
+      1  100.0%            JS: ~MongoClient /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/mongo_client.js:43:16
+      1    3.0%      JS: ~serializeNumber /home/juan/Backend/desafio-15/node_modules/bson/lib/parser/serializer.js:44:25
+      1  100.0%        JS: ^serializeInto /home/juan/Backend/desafio-15/node_modules/bson/lib/parser/serializer.js:553:23
+      1  100.0%          JS: ^serialize /home/juan/Backend/desafio-15/node_modules/bson/lib/bson.js:110:19
+      1  100.0%            JS: ^serializeBson /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/commands.js:379:18
+      1    3.0%      JS: ~realpathSync node:fs:2470:22
+      1  100.0%        JS: ~toRealPath node:internal/modules/cjs/loader:449:20
+      1  100.0%          JS: ~Module._findPath node:internal/modules/cjs/loader:555:28
+      1  100.0%            JS: ~resolveMainPath node:internal/modules/run_main:15:25
+      1    3.0%      JS: ~queueMicrotask node:internal/process/task_queues:149:24
+      1  100.0%        JS: ~cork /home/juan/Backend/desafio-15/node_modules/@redis/client/dist/lib/client/socket.js:91:9
+      1  100.0%          JS: ~_RedisClient_tick /home/juan/Backend/desafio-15/node_modules/@redis/client/dist/lib/client/index.js:462:50
+      1  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/@redis/client/dist/lib/client/index.js:371:22
+      1    3.0%      JS: ~processWaitQueue /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection_pool.js:435:21
+      1  100.0%        JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection_pool.js:183:26
+      1  100.0%          JS: ^processTicksAndRejections node:internal/process/task_queues:67:35
+      1    3.0%      JS: ~patchProcessObject node:internal/process/pre_execution:135:28
+      1  100.0%        JS: ~prepareExecution node:internal/process/pre_execution:52:26
+      1  100.0%          JS: ~prepareMainThreadExecution node:internal/process/pre_execution:36:36
+      1  100.0%            JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    3.0%      JS: ~onceWrapper node:events:622:21
+      1  100.0%        JS: ~Readable.pipe /home/juan/Backend/desafio-15/node_modules/winston/node_modules/readable-stream/lib/_stream_readable.js:608:36
+      1  100.0%          JS: ~add /home/juan/Backend/desafio-15/node_modules/winston/lib/winston/logger.js:344:6
+      1  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/winston/lib/winston/logger.js:124:26
+      1    3.0%      JS: ~lookup node:dns:140:16
+      1  100.0%        JS: ~<anonymous> node:net:1168:61
+      1  100.0%          JS: ~defaultTriggerAsyncIdScope node:internal/async_hooks:457:36
+      1  100.0%            JS: ~lookupAndConnect node:net:1112:26
+      1    3.0%      JS: ~listOnTimeout node:internal/timers:512:25
+      1  100.0%        JS: ~processTimers node:internal/timers:492:25
+      1    3.0%      JS: ~familySync /home/juan/Backend/desafio-15/node_modules/detect-libc/lib/detect-libc.js:92:20
+      1  100.0%        JS: ~module.exports.evaluate /home/juan/Backend/desafio-15/node_modules/@mapbox/node-pre-gyp/lib/util/versioning.js:277:35
+      1  100.0%          JS: ~exports.find /home/juan/Backend/desafio-15/node_modules/@mapbox/node-pre-gyp/lib/pre-binding.js:17:24
+      1  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/bcrypt/bcrypt.js:1:1
+      1    3.0%      JS: ~createWritableStdioStream node:internal/bootstrap/switches/is_main_thread:45:35
+      1  100.0%        JS: ~getStderr node:internal/bootstrap/switches/is_main_thread:168:19
+      1  100.0%          JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/debug/src/node.js:1:1
+      1  100.0%            JS: ~Module._compile node:internal/modules/cjs/loader:1173:37
+      1    3.0%      JS: ~createHash node:crypto:139:20
+      1  100.0%        JS: ~completeUpgrade /home/juan/Backend/desafio-15/node_modules/ws/lib/websocket-server.js:333:18
+      1  100.0%          JS: ~handleUpgrade /home/juan/Backend/desafio-15/node_modules/ws/lib/websocket-server.js:227:16
+      1  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/engine.io/build/server.js:383:32
+      1    3.0%      JS: ~__extends /home/juan/Backend/desafio-15/node_modules/sift/lib/index.js:30:23
+      1  100.0%        JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/sift/lib/index.js:138:50
+      1  100.0%          JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/sift/lib/index.js:5:19
+      1  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/sift/lib/index.js:1:11
+      1    3.0%      JS: ~Long /home/juan/Backend/desafio-15/node_modules/bson/lib/long.js:59:18
+      1  100.0%        JS: ~Timestamp /home/juan/Backend/desafio-15/node_modules/bson/lib/timestamp.js:29:23
+      1  100.0%          JS: ~deserializeObject /home/juan/Backend/desafio-15/node_modules/bson/lib/parser/deserializer.js:65:27
+      1  100.0%            JS: ~deserializeObject /home/juan/Backend/desafio-15/node_modules/bson/lib/parser/deserializer.js:65:27
+      1    3.0%      JS: ~Hmac node:internal/crypto/hash:131:14
+      1  100.0%        JS: ~createHmac node:crypto:171:20
+      1  100.0%          JS: ~HMAC /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/auth/scram.js:225:14
+      1  100.0%            JS: ~continueScramConversation /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/auth/scram.js:93:35
+      1    3.0%      JS: ~ClientSession /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/sessions.js:46:16
+      1  100.0%        JS: ~startSession /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/mongo_client.js:240:17
+      1  100.0%          JS: ~executeOperationAsync /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/operations/execute_operation.js:15:37
+      1  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/operations/execute_operation.js:12:39
+      1    3.0%      JS: ~<anonymous> node:internal/fs/promises:1:1
+      1  100.0%        JS: ^compileForInternalLoader node:internal/bootstrap/loaders:319:27
+      1  100.0%          JS: ^nativeModuleRequire node:internal/bootstrap/loaders:356:29
+      1  100.0%            JS: ~<anonymous> node:internal/modules/esm/load:1:1
+      1    3.0%      JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/express-handlebars/dist/express-handlebars.js:1:1
+      1  100.0%        JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      1  100.0%          JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1  100.0%            JS: ^Module.load node:internal/modules/cjs/loader:1069:33
+      1    3.0%      JS: ^wrapfunction /home/juan/Backend/desafio-15/node_modules/depd/index.js:413:23
+      1  100.0%        JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/express/lib/response.js:1:1
+      1  100.0%          JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      1  100.0%            JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+
+     69    2.8%  epoll_pwait@@GLIBC_2.6
+
+     44    1.8%  std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@@GLIBCXX_3.4.9
+     23   52.3%    /usr/bin/node
+      2    8.7%      /usr/bin/node
+      1   50.0%        JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/@colors/colors/lib/styles.js:1:1
+      1  100.0%          JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      1  100.0%            JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1   50.0%        JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1  100.0%          JS: *Module._load node:internal/modules/cjs/loader:851:24
+      1  100.0%            JS: *Module.require node:internal/modules/cjs/loader:1097:36
+      1    4.3%      JS: ~value node:internal/console/constructor:337:20
+      1  100.0%        JS: ~log node:internal/console/constructor:376:6
+      1  100.0%          /usr/bin/node
+      1  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/server.js:1:1
+      1    4.3%      JS: ~validate_config /home/juan/Backend/desafio-15/node_modules/@mapbox/node-pre-gyp/lib/util/versioning.js:195:25
+      1  100.0%        JS: ~exports.find /home/juan/Backend/desafio-15/node_modules/@mapbox/node-pre-gyp/lib/pre-binding.js:17:24
+      1  100.0%          JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/bcrypt/bcrypt.js:1:1
+      1  100.0%            JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      1    4.3%      JS: ~update node:internal/crypto/hash:99:40
+      1  100.0%        JS: ~completeUpgrade /home/juan/Backend/desafio-15/node_modules/ws/lib/websocket-server.js:333:18
+      1  100.0%          JS: ~handleUpgrade /home/juan/Backend/desafio-15/node_modules/ws/lib/websocket-server.js:227:16
+      1  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/engine.io/build/server.js:383:32
+      1    4.3%      JS: ~toRealPath node:internal/modules/cjs/loader:449:20
+      1  100.0%        JS: ~Module._findPath node:internal/modules/cjs/loader:555:28
+      1  100.0%          JS: ~resolveMainPath node:internal/modules/run_main:15:25
+      1  100.0%            JS: ~executeUserEntryPoint node:internal/modules/run_main:75:31
+      1    4.3%      JS: ~setSourceMapsEnabled node:internal/source_map/source_map_cache:58:30
+      1  100.0%        JS: ~getSourceMapsEnabled node:internal/source_map/source_map_cache:51:30
+      1  100.0%          JS: ~initializeSourceMapsHandlers node:internal/process/pre_execution:602:38
+      1  100.0%            JS: ~prepareExecution node:internal/process/pre_execution:52:26
+      1    4.3%      JS: ~resume /home/juan/Backend/desafio-15/node_modules/winston/node_modules/readable-stream/lib/_stream_readable.js:902:16
+      1  100.0%        JS: ~Readable.resume /home/juan/Backend/desafio-15/node_modules/winston/node_modules/readable-stream/lib/_stream_readable.js:886:38
+      1  100.0%          JS: ~Readable.on /home/juan/Backend/desafio-15/node_modules/winston/node_modules/readable-stream/lib/_stream_readable.js:804:34
+      1  100.0%            JS: ~Readable.pipe /home/juan/Backend/desafio-15/node_modules/winston/node_modules/readable-stream/lib/_stream_readable.js:608:36
+      1    4.3%      JS: ~realpathSync node:fs:2470:22
+      1  100.0%        JS: ~toRealPath node:internal/modules/cjs/loader:449:20
+      1  100.0%          JS: ~Module._findPath node:internal/modules/cjs/loader:555:28
+      1  100.0%            JS: ~resolveMainPath node:internal/modules/run_main:15:25
+      1    4.3%      JS: ~prepareExecution node:internal/process/pre_execution:52:26
+      1  100.0%        JS: ~prepareMainThreadExecution node:internal/process/pre_execution:36:36
+      1  100.0%          JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    4.3%      JS: ~prepare /home/juan/Backend/desafio-15/node_modules/engine.io/build/server.js:327:12
+      1  100.0%        JS: ~handleRequest /home/juan/Backend/desafio-15/node_modules/engine.io/build/server.js:343:18
+      1  100.0%          JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/engine.io/build/server.js:479:30
+      1  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/socket.io/dist/index.js:290:27
+      1    4.3%      JS: ~patchProcessObject node:internal/process/pre_execution:135:28
+      1  100.0%        JS: ~prepareExecution node:internal/process/pre_execution:52:26
+      1  100.0%          JS: ~prepareMainThreadExecution node:internal/process/pre_execution:36:36
+      1  100.0%            JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    4.3%      JS: ~patch /home/juan/Backend/desafio-15/node_modules/graceful-fs/graceful-fs.js:102:16
+      1  100.0%        JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/graceful-fs/graceful-fs.js:1:1
+      1  100.0%          JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      1  100.0%            JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1    4.3%      JS: ~encodePacket /home/juan/Backend/desafio-15/node_modules/engine.io-parser/build/cjs/encodePacket.js:4:22
+      1  100.0%        JS: ~send /home/juan/Backend/desafio-15/node_modules/engine.io/build/transports/websocket.js:57:9
+      1  100.0%          JS: ~onPacket /home/juan/Backend/desafio-15/node_modules/engine.io/build/socket.js:199:26
+      1  100.0%            JS: ^emit node:events:460:44
+      1    4.3%      JS: ~deserialize /home/juan/Backend/desafio-15/node_modules/bson/lib/parser/deserializer.js:36:21
+      1  100.0%        JS: ~deserialize /home/juan/Backend/desafio-15/node_modules/bson/lib/bson.js:161:21
+      1  100.0%          JS: ~parse /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/commands.js:222:10
+      1  100.0%            JS: ~onMessage /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:157:14
+      1    4.3%      JS: ~createHash node:crypto:139:20
+      1  100.0%        JS: ~completeUpgrade /home/juan/Backend/desafio-15/node_modules/ws/lib/websocket-server.js:333:18
+      1  100.0%          JS: ~handleUpgrade /home/juan/Backend/desafio-15/node_modules/ws/lib/websocket-server.js:227:16
+      1  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/engine.io/build/server.js:383:32
+      1    4.3%      JS: ~_setClient /home/juan/Backend/desafio-15/node_modules/mongoose/lib/connection.js:859:20
+      1  100.0%        JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/lib/connection.js:810:20
+      1  100.0%          JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/utils.js:349:18
+      1  100.0%            /usr/bin/node
+      1    4.3%      JS: ~StringComposer /home/juan/Backend/desafio-15/node_modules/@redis/client/dist/lib/client/RESP2/composers/string.js:5:16
+      1  100.0%        JS: ~RESP2Decoder /home/juan/Backend/desafio-15/node_modules/@redis/client/dist/lib/client/RESP2/decoder.js:24:16
+      1  100.0%          JS: ~RedisCommandsQueue /home/juan/Backend/desafio-15/node_modules/@redis/client/dist/lib/client/commands-queue.js:31:16
+      1  100.0%            JS: ~_RedisClient_initiateQueue /home/juan/Backend/desafio-15/node_modules/@redis/client/dist/lib/client/index.js:328:68
+      1    4.3%      JS: ~Layer /home/juan/Backend/desafio-15/node_modules/express/lib/router/layer.js:33:15
+      1  100.0%        JS: ~route /home/juan/Backend/desafio-15/node_modules/express/lib/router/index.js:502:29
+      1  100.0%          JS: ~app.<computed> /home/juan/Backend/desafio-15/node_modules/express/lib/application.js:490:25
+      1  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/server.js:1:1
+      1    4.3%      JS: ~Hmac node:internal/crypto/hash:131:14
+      1  100.0%        JS: ~createHmac node:crypto:171:20
+      1  100.0%          JS: ~HMAC /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/auth/scram.js:225:14
+      1  100.0%            JS: ~continueScramConversation /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/auth/scram.js:93:35
+      1    4.3%      JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/connection_string.js:180:27
+      1  100.0%        /usr/bin/node
+      1  100.0%          JS: ~CaseInsensitiveMap /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/connection_string.js:179:16
+      1  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/connection_string.js:1:1
+      1    4.3%      JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connect.js:88:85
+      1  100.0%        JS: ~onMessage /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:157:14
+      1  100.0%          JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connection.js:61:44
+      1  100.0%            JS: ^emit node:events:460:44
+      1    4.3%      JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/@mapbox/node-pre-gyp/node_modules/semver/classes/range.js:1:1
+      1  100.0%        JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      1  100.0%          JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1  100.0%            JS: ^Module.load node:internal/modules/cjs/loader:1069:33
+     20   45.5%    JS: *internalCompileFunction node:internal/vm:30:33
+     17   85.0%      JS: *Module._compile node:internal/modules/cjs/loader:1173:37
+     17  100.0%        JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+     17  100.0%          JS: *Module.load node:internal/modules/cjs/loader:1069:33
+     17  100.0%            JS: ^Module._load node:internal/modules/cjs/loader:851:24
+      3   15.0%      JS: ^wrapSafe node:internal/modules/cjs/loader:1117:18
+      3  100.0%        JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      3  100.0%          JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      2   66.7%            JS: *Module.load node:internal/modules/cjs/loader:1069:33
+      1   33.3%            JS: ^Module.load node:internal/modules/cjs/loader:1069:33
+
+     38    1.5%  syscall@@GLIBC_2.2.5
+     11   28.9%    JS: *realpathSync node:fs:2470:22
+      5   45.5%      JS: *tryExtensions node:internal/modules/cjs/loader:456:23
+      4   80.0%        JS: ^tryPackage node:internal/modules/cjs/loader:394:20
+      3   75.0%          JS: *Module._findPath node:internal/modules/cjs/loader:555:28
+      3  100.0%            JS: ^Module._resolveFilename node:internal/modules/cjs/loader:948:35
+      1   25.0%          JS: ^Module._findPath node:internal/modules/cjs/loader:555:28
+      1  100.0%            JS: ^Module._resolveFilename node:internal/modules/cjs/loader:948:35
+      1   20.0%        JS: ^Module._findPath node:internal/modules/cjs/loader:555:28
+      1  100.0%          JS: ^Module._resolveFilename node:internal/modules/cjs/loader:948:35
+      1  100.0%            JS: ^Module._load node:internal/modules/cjs/loader:851:24
+      4   36.4%      JS: *Module._findPath node:internal/modules/cjs/loader:555:28
+      4  100.0%        JS: ^Module._resolveFilename node:internal/modules/cjs/loader:948:35
+      4  100.0%          JS: ^Module._load node:internal/modules/cjs/loader:851:24
+      4  100.0%            JS: *Module.require node:internal/modules/cjs/loader:1097:36
+      2   18.2%      JS: ^toRealPath node:internal/modules/cjs/loader:449:20
+      1   50.0%        JS: ^tryFile node:internal/modules/cjs/loader:440:17
+      1  100.0%          JS: ^tryExtensions node:internal/modules/cjs/loader:456:23
+      1  100.0%            JS: ^Module._findPath node:internal/modules/cjs/loader:555:28
+      1   50.0%        JS: ^Module._findPath node:internal/modules/cjs/loader:555:28
+      1  100.0%          JS: ^Module._resolveFilename node:internal/modules/cjs/loader:948:35
+      1  100.0%            JS: ^Module._load node:internal/modules/cjs/loader:851:24
+      9   23.7%    JS: *stat node:internal/modules/cjs/loader:161:14
+      9  100.0%      JS: ^Module._findPath node:internal/modules/cjs/loader:555:28
+      9  100.0%        JS: ^Module._resolveFilename node:internal/modules/cjs/loader:948:35
+      8   88.9%          JS: ^Module._load node:internal/modules/cjs/loader:851:24
+      8  100.0%            JS: *Module.require node:internal/modules/cjs/loader:1097:36
+      1   11.1%          JS: *Module._load node:internal/modules/cjs/loader:851:24
+      1  100.0%            JS: *Module.require node:internal/modules/cjs/loader:1097:36
+      9   23.7%    JS: *Module._findPath node:internal/modules/cjs/loader:555:28
+      9  100.0%      JS: ^Module._resolveFilename node:internal/modules/cjs/loader:948:35
+      9  100.0%        JS: ^Module._load node:internal/modules/cjs/loader:851:24
+      9  100.0%          JS: *Module.require node:internal/modules/cjs/loader:1097:36
+      9  100.0%            JS: ^require node:internal/modules/cjs/helpers:102:31
+      5   13.2%    JS: *tryExtensions node:internal/modules/cjs/loader:456:23
+      4   80.0%      JS: ^Module._findPath node:internal/modules/cjs/loader:555:28
+      4  100.0%        JS: ^Module._resolveFilename node:internal/modules/cjs/loader:948:35
+      4  100.0%          JS: ^Module._load node:internal/modules/cjs/loader:851:24
+      4  100.0%            JS: *Module.require node:internal/modules/cjs/loader:1097:36
+      1   20.0%      JS: ^tryPackage node:internal/modules/cjs/loader:394:20
+      1  100.0%        JS: ^Module._findPath node:internal/modules/cjs/loader:555:28
+      1  100.0%          JS: ^Module._resolveFilename node:internal/modules/cjs/loader:948:35
+      1  100.0%            JS: ^Module._load node:internal/modules/cjs/loader:851:24
+      3    7.9%    JS: *readFileSync node:fs:456:22
+      3  100.0%      JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      3  100.0%        JS: *Module.load node:internal/modules/cjs/loader:1069:33
+      3  100.0%          JS: ^Module._load node:internal/modules/cjs/loader:851:24
+      3  100.0%            JS: *Module.require node:internal/modules/cjs/loader:1097:36
+      1    2.6%    JS: *closeSync node:fs:532:19
+      1  100.0%      JS: *closeSync /home/juan/Backend/desafio-15/node_modules/graceful-fs/graceful-fs.js:72:24
+      1  100.0%        JS: *readFileSync node:fs:456:22
+      1  100.0%          JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1  100.0%            JS: *Module.load node:internal/modules/cjs/loader:1069:33
+
+     29    1.2%  _IO_file_xsputn@@GLIBC_2.2.5
+     16   55.2%    JS: *internalCompileFunction node:internal/vm:30:33
+      9   56.3%      JS: *Module._compile node:internal/modules/cjs/loader:1173:37
+      9  100.0%        JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      9  100.0%          JS: *Module.load node:internal/modules/cjs/loader:1069:33
+      9  100.0%            JS: ^Module._load node:internal/modules/cjs/loader:851:24
+      7   43.8%      JS: ^wrapSafe node:internal/modules/cjs/loader:1117:18
+      7  100.0%        JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      7  100.0%          JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      6   85.7%            JS: *Module.load node:internal/modules/cjs/loader:1069:33
+      1   14.3%            JS: ^Module.load node:internal/modules/cjs/loader:1069:33
+     12   41.4%    /usr/bin/node
+      2   16.7%      JS: ~assertEncoding node:internal/fs/utils:155:24
+      2  100.0%        JS: ~getOptions node:internal/fs/utils:318:20
+      2  100.0%          JS: ~readFileSync node:fs:456:22
+      2  100.0%            JS: ~Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      2   16.7%      /usr/bin/node
+      2  100.0%        JS: ~getStack /home/juan/Backend/desafio-15/node_modules/depd/index.js:381:19
+      2  100.0%          JS: ~depd /home/juan/Backend/desafio-15/node_modules/depd/index.js:103:15
+      2  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/body-parser/index.js:1:1
+      1    8.3%      JS: ~update node:internal/crypto/hash:99:40
+      1  100.0%        JS: ~completeUpgrade /home/juan/Backend/desafio-15/node_modules/ws/lib/websocket-server.js:333:18
+      1  100.0%          JS: ~handleUpgrade /home/juan/Backend/desafio-15/node_modules/ws/lib/websocket-server.js:227:16
+      1  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/engine.io/build/server.js:383:32
+      1    8.3%      JS: ~serveStatic /home/juan/Backend/desafio-15/node_modules/serve-static/index.js:38:22
+      1  100.0%        JS: ~<anonymous> /home/juan/Backend/desafio-15/server.js:1:1
+      1  100.0%          JS: ~Module._compile node:internal/modules/cjs/loader:1173:37
+      1  100.0%            JS: ~Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1    8.3%      JS: ~selectColor /home/juan/Backend/desafio-15/node_modules/socket.io-parser/node_modules/debug/src/common.js:41:22
+      1  100.0%        JS: ~createDebug /home/juan/Backend/desafio-15/node_modules/socket.io-parser/node_modules/debug/src/common.js:60:22
+      1  100.0%          JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/socket.io-parser/build/cjs/index.js:1:1
+      1  100.0%            JS: *Module._compile node:internal/modules/cjs/loader:1173:37
+      1    8.3%      JS: ~processTimers node:internal/timers:492:25
+      1    8.3%      JS: ~prepareExecution node:internal/process/pre_execution:52:26
+      1  100.0%        JS: ~prepareMainThreadExecution node:internal/process/pre_execution:36:36
+      1  100.0%          JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    8.3%      JS: ~makeConnection /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connect.js:256:24
+      1  100.0%        JS: ~connect /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/cmap/connect.js:30:17
+      1  100.0%          JS: ~checkServer /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/sdam/monitor.js:143:21
+      1  100.0%            JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/mongoose/node_modules/mongodb/lib/sdam/monitor.js:226:12
+      1    8.3%      JS: ~lazyrouter /home/juan/Backend/desafio-15/node_modules/express/lib/application.js:144:37
+      1  100.0%        JS: ~use /home/juan/Backend/desafio-15/node_modules/express/lib/application.js:194:23
+      1  100.0%          JS: ~<anonymous> /home/juan/Backend/desafio-15/server.js:1:1
+      1  100.0%            JS: ~Module._compile node:internal/modules/cjs/loader:1173:37
+      1    8.3%      JS: ~<anonymous> /home/juan/Backend/desafio-15/node_modules/handlebars/dist/cjs/handlebars.js:1:1
+      1  100.0%        JS: ^Module._compile node:internal/modules/cjs/loader:1173:37
+      1  100.0%          JS: ^Module._extensions..js node:internal/modules/cjs/loader:1227:37
+      1  100.0%            JS: ^Module.load node:internal/modules/cjs/loader:1069:33
+
