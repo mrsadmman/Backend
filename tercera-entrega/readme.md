@@ -2,10 +2,10 @@
 
 [def]: public/forreadme/user.png
 
-![cart][def]
+![cart] [def2]
 
-[def]: public/forreadme/cart.png
+[def2]: public/forreadme/cart.png
 
-![wpp][def]
+![wpp][def3]
 
-[def]: public/forreadme/wpp.png
+[def3]: public/forreadme/wpp.png
