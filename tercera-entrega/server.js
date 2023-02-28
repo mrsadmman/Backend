@@ -5,25 +5,17 @@ const { errorLogger, warnLogger } = require('./loggerConfig');
 const compression = require('compression');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const Usuarios = require('./models/usuarios');
+/* const Usuarios = require('./models/usuarios');*/
 const bcrypt = require('bcrypt');
-const routes = require('./routes/routes');
 const mongoose = require('mongoose');
 const { engine } = require('express-handlebars');
 const moment = require('moment');
-const timestamp = moment().format('h:mm a');
-
-
-//Messages and Products
-const Messages = require('./container/messagesContainer');
-const Products = require('./container/productsContainer');
-const dataMsg = new Messages();
-const producto = new Products();
-const contenedorProductos = new Products('productos');
-const productosFS = contenedorProductos.getAll();
-const generateFakeProducts = require('./utils/fakerProductGenerator');
-const FakeP = generateFakeProducts(5);
-
+const multer = require("multer");
+const { normalizeChat } = require("./normalizr")
+const { sendMail, sendCartMail } = require("./nodemailer");
+const { sendPhoneMsg, sendWhatsAppMsg } = require("./twilio");
+const { chatLog, products, Usuarios, carrito }= require ("./container/container")
+const { createNProducts } = require ("./faker")
 const app = express();
 
 const httpServer = require('http').createServer(app);
@@ -43,6 +35,17 @@ const NODE_ENV = process.env.NODE_ENV;
 const MONGOURL = process.env.MONGOURL;
 const PORT = process.env.PORT;
 let HOST = '0.0.0.0';
+
+//Multer config
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "./images");
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.fieldname + "-" + Date.now() + "." + file.originalname.split(".").pop());
+  },
+});
+const upload = multer({ storage: storage });
 
 //SESSION
 const MongoStore = require('connect-mongo');
@@ -109,7 +112,7 @@ passport.use(
       passReqToCallback: true,
     },
     (req, username, password, done) => {
-      Usuarios.findOne({ username: username }, function (err, user) {
+      Usuarios.findOne({ username: username }, async function (err, user) {
         if (err) {
           res.render('usuario-registrado');
           console.log('❌ Error in SignUp: ' + err);
@@ -121,6 +124,12 @@ passport.use(
           return done(null, false);
         }
 
+        let timestamp = new Date().toLocaleString();
+        const idNumber = await carrito.save({
+          timestamp,
+          productos: [],
+        });
+
         const newUser = {
           username: username,
           password: createHash(password),
@@ -130,7 +139,10 @@ passport.use(
           direccion: req.body.direccion,
           telefono: req.body.telefono,
           avatar: req.body.avatar,
+          carrito_id: idNumber,
+          
         };
+        sendMail(newUser);
         Usuarios.create(newUser, (err, userWithId) => {
           if (err) {
             console.log('❌ Error in Saving user: ' + err);
@@ -157,9 +169,10 @@ app.use(passport.session());
 
 
 //HBS
-app.use('/public', express.static(__dirname + '/public'));
-app.set('view engine', 'hbs');
-app.set('views', './views');
+app.set("view engine", "hbs");
+app.set("views", ".//views");
+app.use(express.static("./images"));
+app.use(express.static("public"));
 app.engine(
   'hbs',
   engine({
@@ -172,69 +185,181 @@ app.engine(
 
 
 //ROUTES
-app.get('/', routes.getRoot);
-app.get('/login', routes.getLogin);
-app.post('/login', passport.authenticate('login', { failureRedirect: '/faillogin' }), routes.postLogin);
-app.get('/faillogin', routes.getFaillogin);
-app.get('/signup', routes.getSignup);
-app.post('/signup', passport.authenticate('signup', { failureRedirect: '/failsignup' }), routes.postSignup);
-app.get('/failsignup', routes.getFailsignup);
-app.get('/logout', routes.getLogout);
+app.use((req, res, next) => {
+  warnLogger.info({ metodo: req.method, path: req.path });
+  next();
+});
 
-function checkAuthentication(req, res, next) {
+const auth = (req, res, next) => {
   if (req.isAuthenticated()) {
     next();
   } else {
-    res.redirect('/login');
+    res.redirect("/loginError");
   }
-}
+};
 
-app.get('/ruta-protegida', checkAuthentication, (req, res) => {
+app.get("/register", (req, res) => {
+  if (req.isAuthenticated()) {
+    const { username, password } = req.user;
+    const user = { username, password };
+    res.render("form", { user });
+  } else {
+    res.render("register");
+  }
+});
+
+app.post(
+  `/register`,
+  upload.single("thumbnail"),
+  passport.authenticate("signup", { failureRedirect: "/registerErrorAuth" }),
+  (req, res) => {
+    const { username, password } = req.user;
+    const user = { username, password };
+    res.render("form", { user });
+  }
+);
+
+app.get("/registerErrorAuth", (req, res) => {
+  res.render("registerErrorAuth");
+});
+
+app.get("/login", (req, res) => {
+  if (req.isAuthenticated()) {
+    const { username, password } = req.user;
+    const user = { username, password };
+    res.render("form", { user });
+  } else {
+    res.render("login");
+  }
+});
+
+app.post(
+  `/login`,
+  upload.single("thumbnail"),
+  passport.authenticate("login", { failureRedirect: "/loginErrorAuth" }),
+  (req, res) => {
+    const { username, password } = req.user;
+    const user = { username, password };
+    res.render("form", { user });
+  }
+);
+
+app.get("/loginError", (req, res) => {
+  res.render("loginError");
+});
+
+app.get("/loginErrorAuth", (req, res) => {
+  res.render("loginErrorAuth");
+});
+
+app.post("/logout", (req, res) => {
+  req.logout((err) => {
+    if (err) {
+      return next(err);
+    }
+  });
+  res.render("login");
+});
+
+app.get(`/`, auth, async (req, res) => {
   const { username, password } = req.user;
   const user = { username, password };
-  const admin = JSON.stringify(req.session.admin);
-  res.render('private', { layout: 'logged', user, admin });
+  res.render("form", { user });
 });
 
-app.get('/form', checkAuthentication, (req, res) => {
-  res.render('form', { layout: 'logged' });
+app.get(`/productos`, auth, async (req, res) => {
+  const allProducts = await products.getAll();
+  res.render("products", { products: allProducts, productsExist: true });
 });
 
-app.get('/showsession', (req, res) => {
-  const mySession = JSON.stringify(req.session, null, 4);
-  req.session.touch();
-  res.json(req.session);
-  /* res.render('session', { layout: 'logged', session: mySession }) */
+app.post(`/productos`, upload.single("thumbnail"), auth, (req, res) => {
+  let timestamp = new Date().toLocaleString();
+  const title = req.body.title;
+  const description = req.body.description;
+  const code = req.body.code;
+  const price = req.body.price;
+  const stock = req.body.stock;
+  const thumbnail = req.body.thumbnail;
+  products.save({
+    title,
+    description,
+    code,
+    price,
+    stock,
+    thumbnail,
+    timestamp,
+  });
+  return res.redirect("/");
 });
 
-app.get('/form', checkAuthentication, (req, res) => {
-  res.render('form', { layout: 'logged' });
+app.post("/carrito/:id", async (req, res) => {
+  const { id } = req.params;
+  const carrito_usuario = await carrito.getById(req.user.carrito_id);
+  const producto = await products.getById(id);
+  carrito_usuario[0].productos.push(producto[0]);
+  carrito.editById(req.user.carrito_id, carrito_usuario[0]);
+  return res.redirect("/productos");
 });
 
-app.get('/products-lists', async (req, res) => {
-  res.render('products-lists');
+app.post("/finalizarCarrito", async (req, res) => {
+  const carrito_usuario = await carrito.getById(req.user.carrito_id);
+  const productos = carrito_usuario[0].productos;
+  sendCartMail(req.user.username, productos);
+  sendWhatsAppMsg(JSON.stringify(productos, null, 4));
+  sendPhoneMsg(req.user.telefono);
+  carrito_usuario[0].productos = [];
+  carrito.editById(req.user.carrito_id, carrito_usuario[0]);
+  return res.redirect("/productos");
 });
 
-app.get('/productos-test', async (req, res) => {
-  res.render('productos-test');
+app.get(`/productos-test`, auth, (req, res) => {
+  let productsArray = [];
+  createNProducts(productsArray, 5);
+  res.render("productsRandom", {
+    products: productsArray,
+    productsExist: true,
+  });
 });
 
-app.get('/chat', async (req, res) => {
-  res.render('chat');
+app.post(`/productos-test`, upload.single("thumbnail"), auth, (req, res) => {
+  let productsArray = [];
+  createNProducts(productsArray, 5);
+  productsArray.forEach((product) => products.save(product));
+  res.json({ msg: "Products created" });
 });
 
-app.get('/info', routes.getinfo);
+app.get(`/user-info`, auth, async (req, res) => {
+  const id = req.user._id.toHexString();
+  const { username, nombre, direccion, edad, telefono, avatar } = req.user;
+  const carrito_usuario = await carrito.getById(req.user.carrito_id);
+  const productosCarrito = carrito_usuario[0].productos;
+  res.render("user-info", { username, id, nombre, direccion, edad, telefono, avatar, productos: productosCarrito });
+});
+
+app.get(`/info`, (req, res) => {
+  res.json({
+    "Argumentos de entrada": process.argv.slice(2),
+    "Path de ejecución": process.argv[0],
+    "Sistema operativo": process.platform,
+    "ID del proceso": process.pid,
+    "Versión de Node": process.version,
+    "Carpeta del proyecto": process.cwd(),
+    "Memoria total reservada": process.memoryUsage().rss,
+  });
+});
 
 //Fork
 app.get(`/api/randoms`, (req, res) => {
   let msg = 0;
-  req.query.hasOwnProperty('cant') ? (msg = parseInt(req.query.cant)) : (msg = 10000);
+  req.query.hasOwnProperty("cant") ? (msg = parseInt(req.query.cant)) : (msg = 10000);
+
   let arrayRandomNum = [];
   let arrayUsedNumber = [];
   let arrayRepeatedResult = [];
   for (let i = 0; i < msg; i++) {
     arrayRandomNum.push(Math.floor(Math.random() * 1000) + 1);
   }
+
   arrayRandomNum.forEach((num) => {
     if (!arrayUsedNumber.includes(num)) {
       arrayUsedNumber.push(num);
@@ -243,13 +368,19 @@ app.get(`/api/randoms`, (req, res) => {
       });
     }
   });
+
   res.json({
-    Numeros_generados: 'Usted ha generado ' + msg + ' números. Estos, agrupados por repetición, generaron un array de ' + arrayRepeatedResult.length + ' elementos',
+    Numeros_generados:
+      "Usted ha generado " +
+      msg +
+      " números. Estos, agrupados por repetición, generaron un array de " +
+      arrayRepeatedResult.length +
+      " elementos",
     numeros: arrayRepeatedResult,
   });
 });
 
-app.get('*', (req, res, next) => {
+app.get("*", (req, res, next) => {
   warnLogger.warn({ metodo: req.method, path: req.path });
   next();
 });
@@ -280,28 +411,23 @@ const normalizarMensajes = async () => {
 
 //WEBSOCKET
 
-io.on('connection', async (socket) => {
-  console.log(`Nuevo cliente conectado ${socket.id}`);
+io.on("connection", async (socket) => {
+  const allProducts = await products.getAll();
+  io.sockets.emit("lastProducts", allProducts);
 
-  socket.emit('products-lists', await productosFS);
+  const chat = await chatLog.getAll();
+  const normalizedChat = normalizeChat(chat);
+  socket.emit("chat", normalizedChat);
 
-  socket.emit('productos-test', await FakeP);
-
-  socket.emit('msg-list', await normalizarMensajes());
-
-  socket.on('product', async (data) => {
-    console.log('Se recibio un producto nuevo', 'producto:', data);
-
-    await contenedorProductos.save(data);
-
-    io.emit('products-lists', await productosFS);
+  socket.on("userMsg", async (data) => {
+    await chatLog.save(data);
+    const chat = await chatLog.getAll();
+    const normalizedChat = normalizeChat(chat);
+    io.sockets.emit("chat", normalizedChat);
   });
+});
 
-  socket.on('msg', async (data) => {
-    await dataMsg.save({ ...data, timestamp: timestamp });
-
-    console.log('Se recibio un msg nuevo', 'msg:', data);
-
-    io.sockets.emit('msg-list', await normalizarMensajes());
-  });
+process.on("SIGINT", function () {
+  console.log("\nCerrando servidor");
+  process.exit(0);
 });

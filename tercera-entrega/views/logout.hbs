@@ -1,17 +1,11 @@
-<h2>Logout success!</h2>
-<img src="/public/img/logout.png" class="arrow" alt="success!">
-<p>Vuelve pronto</p>
-<p> <strong class="capitalize">{{user.username}}</strong> </p>
+<br/>
 
-<div class='container d-flex flex-direction-column flex-wrap justify-content-center'>
+<h2 class="text-center mt-5">Hasta luego, {{user}}</h2>
 
 
-</div>
+
 <script>
-    const timer = () => {
-  setTimeout(() => {
-    document.location.href = '/login'
-  }, 2000);
-    }
-    timer()
+  setTimeout(function () {
+     window.location = "/login";
+  }, 2000)
 </script>
