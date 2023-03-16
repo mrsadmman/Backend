@@ -1,28 +1,40 @@
-import Contenedor from "../db/mongoDAO.js";
-import Carrito from "../models/carrito.js";
-import Productos from "../models/productos.js";
-import { sendPhoneMsg, sendWhatsAppMsg } from "../config/twilio.config.js";
-import { sendCartMail } from "../config/nodemailer.config.js";
-
-const carrito = new Contenedor(Carrito);
-const products = new Contenedor(Productos);
+import { sendPhoneMsg, sendWhatsAppMsg } from '../config/twilio.config.js';
+import { sendCartMail } from '../config/nodemailer.config.js';
+import DAO from '../db/factory.js';
 
 const postCarritoService = async (req) => {
-  const carrito_usuario = await carrito.getById(req.user.carrito_id);
-  const productos = carrito_usuario[0].productos;
+  const carrito_usuario = await DAO.carrito.getById(req.user.carrito_id);
+  let productos;
+  let productosCarrito;
+  if (carrito_usuario != null) {
+    productosCarrito = carrito_usuario.productos;
+  } else {
+    productosCarrito = await DAO.carrito.getById(1);
+    productosCarrito = productosCarrito.productos;
+  }
   sendCartMail(req.user.username, productos);
   sendWhatsAppMsg(JSON.stringify(productos, null, 4));
   sendPhoneMsg(req.user.telefono);
-  carrito_usuario[0].productos = [];
-  carrito.editById(req.user.carrito_id, carrito_usuario[0]);
+  carrito_usuario.productos = [];
+  DAO.carrito.editById(req.user.carrito_id, carrito_usuario);
 };
 
 const postProductoCarritoService = async (req) => {
   const { id } = req.params;
-  const carrito_usuario = await carrito.getById(req.user.carrito_id);
-  const producto = await products.getById(id);
-  carrito_usuario[0].productos.push(producto[0]);
-  carrito.editById(req.user.carrito_id, carrito_usuario[0]);
+  let carrito_usuario = await DAO.carrito.getById(req.user.carrito_id);
+  let producto = await DAO.productos.getById(id);
+
+  if (carrito_usuario != null) {
+    return;
+  } else {
+    carrito_usuario = await DAO.carrito.getById(1);
+    const productsOldId = await DAO.productos.getAll();
+    producto = productsOldId.find((item) => item._id == id);
+  }
+  //TODO Cambiar esto que está desprolijo
+
+  carrito_usuario.productos.push(producto);
+  DAO.carrito.editById(req.user.carrito_id, carrito_usuario);
 };
 
 export { postCarritoService, postProductoCarritoService };

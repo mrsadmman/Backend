@@ -1,11 +1,7 @@
-import Contenedor from '../db/mongoDAO.js';
-import Productos from '../models/productos.js';
 import createNProducts from '../config/faker.config.js';
-
-const productos = new Contenedor(Productos);
-
+import DAO from '../db/factory.js';
 const getAllProducts = async () => {
-  const allProducts = productos.getAll();
+  const allProducts = DAO.productos.getAll();
   return allProducts;
 };
 
@@ -17,7 +13,7 @@ const postProductService = (req) => {
   const price = req.body.price;
   const stock = req.body.stock;
   const thumbnail = req.body.thumbnail;
-  productos.save({
+  DAO.productos.save({
     title,
     description,
     code,
@@ -36,7 +32,7 @@ const getProductosRandomService = async () => {
 
 const postProductosRandomService = async () => {
   const productsArray = await getProductosRandomService();
-  productsArray.forEach((product) => productos.save(product));
+  productsArray.forEach((product) => DAO.productos.save(product));
 };
 
 export { getAllProducts, postProductService, getProductosRandomService, postProductosRandomService };
