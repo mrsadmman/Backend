@@ -65,6 +65,6 @@ mutation deleteUno {
 
 [def]: public/forreadme/6.png
 
-![1][def]
+![7][def]
 
 [def]: public/forreadme/7.png
