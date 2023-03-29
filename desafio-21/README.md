@@ -1,5 +1,3 @@
-![1](pics/1.png)
-
 ![2](pics/2.png)
 
 ![3](pics/3.png)
