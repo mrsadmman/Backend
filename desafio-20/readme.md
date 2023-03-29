@@ -42,30 +42,16 @@ mutation deleteUno {
 }
 ```
 
-![1][def]
+![1](public/forreadme/1.png)
 
-[def]: public/forreadme/1.png
+![2](public/forreadme/2.png)
 
-![2][def]
+![3](public/forreadme/3.png)
 
-[def]: public/forreadme/2.png
+![4](public/forreadme/4.png)
 
-![3][def]
+![5](public/forreadme/5.png)
 
-[def]: public/forreadme/3.png
+![6](public/forreadme/6.png)
 
-![4][def]
-
-[def]: public/forreadme/4.png
-
-![5][def]
-
-[def]: public/forreadme/5.png
-
-![6][def]
-
-[def]: public/forreadme/6.png
-
-![7][def]
-
-[def]: public/forreadme/7.png
+![7](public/forreadme/7.png)
