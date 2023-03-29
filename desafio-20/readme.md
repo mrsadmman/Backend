@@ -41,6 +41,7 @@ mutation deleteUno {
   }
 }
 ```
+
 ![1][def]
 
 [def]: public/forreadme/1.png
