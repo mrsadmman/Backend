@@ -1,0 +1,39 @@
+{{> navbar}}
+<br/>
+
+<div class="container my-5 d-flex justify-content-between">
+  <h1 class="text-center">Bienvenido {{user.username}}</h1>
+  <form action="/api/usuarios/logout" method="post">   
+    <button class="btn btn-primary">Cerrar sesión</button>
+  </form>
+</div>
+<form  class="container d-flex flex-column" action="/api/productos" method="POST" enctype="multipart/form-data">
+  <label for="title">Título</label>
+      <input type="text" name="title" />
+      <br />
+      <label for="description">Descripción</label>
+      <input type="text" name="description" />
+      <br />
+      <label for="code">Código</label>
+      <input type="text" name="code" />
+      <br />
+      <label for="price">Precio</label>
+      <input type="number" name="price" />
+      <br />
+      <label for="stock">Stock</label>
+      <input type="number" name="stock" />
+      <br />
+      <label for="thumbnail">Thumbnail (URL)</label>
+      <input type="text" name="thumbnail" />
+      <br />
+      <input type="submit" value="Agregar producto" />
+      <br />
+</form>
+
+<div class="container d-flex flex-column justify-content-between border border-4">
+  <h2 class="text-center m-5">Últimos productos agregados</h2>
+  <div id="lastProducts" class="container d-flex justify-content-center justify-content-lg-between flex-wrap ">
+    {{!-- JS InnerHTML --}}
+  </div>
+</div>
+
